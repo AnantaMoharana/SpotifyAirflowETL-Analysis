@@ -4,7 +4,7 @@ import pandas as pd
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
-from src.extract import authenitcate_api, get_songs_from_playlist, get_artist_info
+from src.extract import authenitcate_api, get_songs_from_playlist, get_artist_info, get_song_audio_quality
 
 
 #Create default argument for dag
@@ -32,7 +32,7 @@ start_etl = DummyOperator(
 )
 
 #Create the authentication operator
-authenitcate=PythonOperator(
+authenticate=PythonOperator(
     task_id='AuthenticateAPI',
     python_callable=authenitcate_api,
     dag=dag
@@ -55,7 +55,12 @@ artist_info=PythonOperator(
 
 )
 
+#Create the operatar to get the audio features of each song
+audio_quality=PythonOperator(
+    task_id='GetAudioQuality',
+    python_callable=get_song_audio_quality,
+    dag=dag
 
+)
 
-
-start_etl >> authenitcate >> get_songs >> artist_info
+start_etl >> authenticate >> get_songs >> [artist_info, audio_quality]

@@ -84,7 +84,7 @@ def get_artist_info(ti):
     songs_df=ti.xcom_pull(key='songs_df')
     songs_df=pd.read_json(songs_df)
 
-    #Get a list of all the artit ids and remove an duplicates
+    #Get a list of all the artit ids and remove duplicates
     id_list=songs_df['artist_id'].tolist()
     id_list = list(set(id_list))
 
@@ -112,8 +112,61 @@ def get_artist_info(ti):
         genres=r['genres']
         for genre in genres:
             #add the new rows to the dataframe 
-            new_row = pd.DataFrame({'artist_id':id,'popularity':popularity,'genre':genre, 'followeres':followers}, index=[0])
+            new_row = pd.DataFrame({'artist_id':id,'popularity':popularity,'genre':genre, 'followers':followers}, index=[0])
             artists_df = pd.concat([new_row,artists_df.loc[:]]).reset_index(drop=True)
 
     ti.xcom_push(key='artists_df',value=artists_df.to_json())
+
+def get_song_audio_quality(ti):
+
+    #get the songs_df which contains the song ids of all the songs in the playlist
+    songs_df=ti.xcom_pull(key='songs_df')
+    songs_df=pd.read_json(songs_df)
+
+    #Get a list fo all the unique ids and remove the duplicates
+    song_ids=songs_df['track_id'].tolist()
+    song_ids=list(set(song_ids))
+
+    #Get an access token to make the API calls
+    access_token=ti.xcom_pull(key='access_token')
+
+    #Headers for making the API call
+    headers = {'Authorization': 'Bearer {token}'.format(token=access_token)}
+
+    #Base URL of all Spotify API endpoints
+    BASE_URL = 'https://api.spotify.com/v1/'
+
+    #Create a dataframe ot hold all the information about the song audio
+    audio_df = pd.DataFrame(columns=['id','acousticness','danceability','duration_ms', 'energy', 'instrumentalness','key', 'liveness', 'loudness', 'speechiness','tempo', 'valence']) 
+    for id in song_ids:
+        #Get the release date of the song
+        r=requests.get(BASE_URL + 'audio-features/' + id, headers=headers)
+        r=r.json()
+        #Get acousticness
+        acousticness=r['acousticness']
+        #Get danceability
+        danceability=r['danceability']
+        #Get duration_ms
+        duration_ms=r['duration_ms']
+        #Get energy
+        energy=r['energy']
+        #Get instrumentalness
+        instrumentalness=r['instrumentalness']
+        #Get key
+        key=r['key']
+        #Get liveness
+        liveness=r['liveness']
+        #Get loudness
+        loudness=r['loudness']
+        #Get speechiness
+        speechiness=r['speechiness']
+        #Get tempo
+        tempo=r['tempo']
+        #Get valence
+        valence=r['valence']
+        #Create a new row
+        new_row = pd.DataFrame({'id':id,'acousticness':acousticness,'danceability':danceability,'duration_ms':duration_ms, 'energy':energy, 'instrumentalness':instrumentalness,'key':key, 'liveness':liveness, 'loudness':loudness, 'speechiness':speechiness,'tempo':tempo, 'valence':valence }, index=[0])
+        audio_df = pd.concat([new_row,audio_df.loc[:]]).reset_index(drop=True)
+
+    ti.xcom_push(key='audio_df',value=audio_df.to_json())
 
