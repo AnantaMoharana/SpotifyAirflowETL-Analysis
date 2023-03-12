@@ -79,3 +79,41 @@ def get_songs_from_playlist(ti):
     ti.xcom_push(key='songs_df', value=songs_df.to_json())
 
 #Get the audio attributes of the songs
+def get_artist_info(ti):
+    #Get the songs_df which contains the airtist ids
+    songs_df=ti.xcom_pull(key='songs_df')
+    songs_df=pd.read_json(songs_df)
+
+    #Get a list of all the artit ids and remove an duplicates
+    id_list=songs_df['artist_id'].tolist()
+    id_list = list(set(id_list))
+
+    #Get an access token to make the API calls
+    access_token=ti.xcom_pull(key='access_token')
+
+    #Headers for making the API call
+    headers = {'Authorization': 'Bearer {token}'.format(token=access_token)}
+
+    #Base URL of all Spotify API endpoints
+    BASE_URL = 'https://api.spotify.com/v1/'
+
+    #Create a dataframe ot hold all the information about the artists
+    artists_df = pd.DataFrame(columns=['artist_id', 'popularity', 'genre', 'followers']) 
+
+    #Go through all the artist ids and make an api call to get their information
+    for id in id_list:
+        r = requests.get(BASE_URL + 'artists/' + id, headers=headers)
+        r=r.json()
+        #Get the total number of followers they have
+        followers=r['followers']['total']
+        #Get their popularity (0-100) the lower the more popular they are
+        popularity=r['popularity']
+        #Get all their potential genres
+        genres=r['genres']
+        for genre in genres:
+            #add the new rows to the dataframe 
+            new_row = pd.DataFrame({'artist_id':id,'popularity':popularity,'genre':genre, 'followeres':followers}, index=[0])
+            artists_df = pd.concat([new_row,artists_df.loc[:]]).reset_index(drop=True)
+
+    ti.xcom_push(key='artists_df',value=artists_df.to_json())
+

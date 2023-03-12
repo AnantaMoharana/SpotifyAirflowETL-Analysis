@@ -1,0 +1,32 @@
+[2023-03-12T18:29:09.637+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.GetArtistInfo manual__2023-03-12T17:58:23.665842+00:00 [queued]>
+[2023-03-12T18:29:09.643+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.GetArtistInfo manual__2023-03-12T17:58:23.665842+00:00 [queued]>
+[2023-03-12T18:29:09.643+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-12T18:29:09.644+0000] {taskinstance.py:1280} INFO - Starting attempt 9 of 11
+[2023-03-12T18:29:09.644+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-12T18:29:09.652+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): GetArtistInfo> on 2023-03-12 17:58:23.665842+00:00
+[2023-03-12T18:29:09.656+0000] {standard_task_runner.py:55} INFO - Started process 3000 to run task
+[2023-03-12T18:29:09.660+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'GetArtistInfo', 'manual__2023-03-12T17:58:23.665842+00:00', '--job-id', '70', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmpvq89m2ib']
+[2023-03-12T18:29:09.660+0000] {standard_task_runner.py:83} INFO - Job 70: Subtask GetArtistInfo
+[2023-03-12T18:29:09.718+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.GetArtistInfo manual__2023-03-12T17:58:23.665842+00:00 [running]> on host 7a5ad222a4d0
+[2023-03-12T18:29:09.760+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=GetArtistInfo
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-12T17:58:23.665842+00:00
+AIRFLOW_CTX_TRY_NUMBER=9
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-12T17:58:23.665842+00:00
+[2023-03-12T18:29:09.901+0000] {logging_mixin.py:137} INFO - {'external_urls': {'spotify': 'https://open.spotify.com/artist/7Gi6gjaWy3DxyilpF1a8Is'}, 'followers': {'href': None, 'total': 6162538}, 'genres': ['corridos tumbados', 'musica mexicana', 'nueva musica mexicana', 'sad sierreno', 'sierreno'], 'href': 'https://api.spotify.com/v1/artists/7Gi6gjaWy3DxyilpF1a8Is', 'id': '7Gi6gjaWy3DxyilpF1a8Is', 'images': [{'height': 640, 'url': 'https://i.scdn.co/image/ab6761610000e5ebb16c368126de1ac35eee5362', 'width': 640}, {'height': 320, 'url': 'https://i.scdn.co/image/ab67616100005174b16c368126de1ac35eee5362', 'width': 320}, {'height': 160, 'url': 'https://i.scdn.co/image/ab6761610000f178b16c368126de1ac35eee5362', 'width': 160}], 'name': 'Junior H', 'popularity': 90, 'type': 'artist', 'uri': 'spotify:artist:7Gi6gjaWy3DxyilpF1a8Is'}
+[2023-03-12T18:29:09.902+0000] {logging_mixin.py:137} INFO - corridos tumbados
+[2023-03-12T18:29:09.902+0000] {logging_mixin.py:137} INFO - musica mexicana
+[2023-03-12T18:29:09.903+0000] {logging_mixin.py:137} INFO - nueva musica mexicana
+[2023-03-12T18:29:09.903+0000] {logging_mixin.py:137} INFO - sad sierreno
+[2023-03-12T18:29:09.904+0000] {logging_mixin.py:137} INFO - sierreno
+[2023-03-12T18:29:09.904+0000] {logging_mixin.py:137} INFO - 6162538
+[2023-03-12T18:29:09.905+0000] {logging_mixin.py:137} INFO - 90
+[2023-03-12T18:29:09.905+0000] {logging_mixin.py:137} INFO - ****************
+[2023-03-12T18:29:09.906+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-12T18:29:09.915+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=GetArtistInfo, execution_date=20230312T175823, start_date=20230312T182909, end_date=20230312T182909
+[2023-03-12T18:29:09.958+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-03-12T18:29:09.971+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

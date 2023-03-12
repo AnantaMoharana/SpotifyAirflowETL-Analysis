@@ -4,7 +4,7 @@ import pandas as pd
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
-from src.extract import authenitcate_api, get_songs_from_playlist
+from src.extract import authenitcate_api, get_songs_from_playlist, get_artist_info
 
 
 #Create default argument for dag
@@ -47,7 +47,15 @@ get_songs=PythonOperator(
 
 )
 
+#Create the operatar to get the artists information from the playlist
+artist_info=PythonOperator(
+    task_id='GetArtistInfo',
+    python_callable=get_artist_info,
+    dag=dag
+
+)
 
 
 
-start_etl >> authenitcate >> [get_songs]
+
+start_etl >> authenitcate >> get_songs >> artist_info
