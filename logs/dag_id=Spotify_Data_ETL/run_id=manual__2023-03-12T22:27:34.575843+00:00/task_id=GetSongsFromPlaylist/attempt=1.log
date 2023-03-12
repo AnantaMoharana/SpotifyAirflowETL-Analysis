@@ -1,0 +1,23 @@
+[2023-03-12T22:27:37.053+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.GetSongsFromPlaylist manual__2023-03-12T22:27:34.575843+00:00 [queued]>
+[2023-03-12T22:27:37.058+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.GetSongsFromPlaylist manual__2023-03-12T22:27:34.575843+00:00 [queued]>
+[2023-03-12T22:27:37.058+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-12T22:27:37.059+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 3
+[2023-03-12T22:27:37.059+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-12T22:27:37.066+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): GetSongsFromPlaylist> on 2023-03-12 22:27:34.575843+00:00
+[2023-03-12T22:27:37.070+0000] {standard_task_runner.py:55} INFO - Started process 2302 to run task
+[2023-03-12T22:27:37.073+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'GetSongsFromPlaylist', 'manual__2023-03-12T22:27:34.575843+00:00', '--job-id', '139', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmpyhyqteek']
+[2023-03-12T22:27:37.074+0000] {standard_task_runner.py:83} INFO - Job 139: Subtask GetSongsFromPlaylist
+[2023-03-12T22:27:37.120+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.GetSongsFromPlaylist manual__2023-03-12T22:27:34.575843+00:00 [running]> on host 83697a7176fb
+[2023-03-12T22:27:37.161+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=GetSongsFromPlaylist
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-12T22:27:34.575843+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-12T22:27:34.575843+00:00
+[2023-03-12T22:27:37.874+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-12T22:27:37.882+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=GetSongsFromPlaylist, execution_date=20230312T222734, start_date=20230312T222737, end_date=20230312T222737
+[2023-03-12T22:27:37.911+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-03-12T22:27:37.930+0000] {taskinstance.py:2578} INFO - 1 downstream tasks scheduled from follow-on schedule check
