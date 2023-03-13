@@ -5,6 +5,7 @@ from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 from src.extract import authenitcate_api, get_songs_from_playlist, get_artist_info, get_song_audio_quality
+from src.transform import transform_data
 
 
 #Create default argument for dag
@@ -63,4 +64,12 @@ audio_quality=PythonOperator(
 
 )
 
-start_etl >> authenticate >> get_songs >> [artist_info, audio_quality]
+#Create the operatar to get the audio features of each song
+data_transformations=PythonOperator(
+    task_id='TransformData',
+    python_callable=transform_data,
+    dag=dag
+
+)
+
+start_etl >> authenticate >> get_songs >> [artist_info, audio_quality] >> data_transformations
