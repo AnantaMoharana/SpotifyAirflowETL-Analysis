@@ -1,0 +1,30 @@
+[2023-03-14T03:34:43.822+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.TestS3Hook manual__2023-03-14T00:09:25.066398+00:00 [queued]>
+[2023-03-14T03:34:43.827+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.TestS3Hook manual__2023-03-14T00:09:25.066398+00:00 [queued]>
+[2023-03-14T03:34:43.828+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-14T03:34:43.828+0000] {taskinstance.py:1280} INFO - Starting attempt 11 of 13
+[2023-03-14T03:34:43.828+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-14T03:34:43.836+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): TestS3Hook> on 2023-03-14 00:09:25.066398+00:00
+[2023-03-14T03:34:43.841+0000] {standard_task_runner.py:55} INFO - Started process 1127 to run task
+[2023-03-14T03:34:43.844+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'TestS3Hook', 'manual__2023-03-14T00:09:25.066398+00:00', '--job-id', '380', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmp2152y2xk']
+[2023-03-14T03:34:43.845+0000] {standard_task_runner.py:83} INFO - Job 380: Subtask TestS3Hook
+[2023-03-14T03:34:43.895+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.TestS3Hook manual__2023-03-14T00:09:25.066398+00:00 [running]> on host c1e86c20df76
+[2023-03-14T03:34:44.098+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=TestS3Hook
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-14T00:09:25.066398+00:00
+AIRFLOW_CTX_TRY_NUMBER=11
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-14T00:09:25.066398+00:00
+[2023-03-14T03:34:44.100+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: load_tables() missing 1 required positional argument: 'bucketname'
+[2023-03-14T03:34:44.106+0000] {taskinstance.py:1323} INFO - Marking task as UP_FOR_RETRY. dag_id=Spotify_Data_ETL, task_id=TestS3Hook, execution_date=20230314T000925, start_date=20230314T033443, end_date=20230314T033444
+[2023-03-14T03:34:44.112+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 380 for task TestS3Hook (load_tables() missing 1 required positional argument: 'bucketname'; 1127)
+[2023-03-14T03:34:44.137+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-03-14T03:34:44.150+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check
