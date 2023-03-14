@@ -48,8 +48,8 @@ def transform_data(ti):
     artist_genre_bridge.drop_duplicates(inplace=True)
 
     #Create the Artist Genre Dimensions Table 
-    genre_bridge=artists_df[['genre']]
-    genre_bridge.drop_duplicates(inplace=True)
+    genre=artists_df[['genre']]
+    genre.drop_duplicates(inplace=True)
 
     #Push the dataframes into XCOM
     ti.xcom_push(key='song_fact', value=song_fact.to_json())
@@ -58,7 +58,7 @@ def transform_data(ti):
     ti.xcom_push(key='artist_fact', value=artist_fact.to_json())
     ti.xcom_push(key='artist_dimension', value=artist_dimension.to_json())
     ti.xcom_push(key='artist_genre_bridge', value=artist_genre_bridge.to_json())
-    ti.xcom_push(key='genre_bridge', value=genre_bridge.to_json())
+    ti.xcom_push(key='genre', value=genre.to_json())
 
 
 

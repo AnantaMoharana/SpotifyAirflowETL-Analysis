@@ -6,8 +6,10 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 from src.extract import authenitcate_api, get_songs_from_playlist, get_artist_info, get_song_audio_quality
 from src.transform import transform_data
+from src.load import load_tables
 
-
+#Get todays date
+today_str = datetime.today().strftime('%Y-%m-%d')
 #Create default argument for dag
 default_args = {
     'owner': 'Ananta Moharana',
@@ -72,4 +74,90 @@ data_transformations=PythonOperator(
 
 )
 
-start_etl >> authenticate >> get_songs >> [artist_info, audio_quality] >> data_transformations
+#Put the song fact in S3
+stage_song_fact=PythonOperator(
+    task_id='SongFactToS3',
+    python_callable=load_tables,
+    op_kwargs={
+        'key':today_str+'/song_fact.json',
+        'bucketname':'spotify-top-50',
+        "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='song_fact') }}"
+    },
+    dag=dag
+)
+
+#Put the song dimension in S3
+stage_song_dim=PythonOperator(
+    task_id='SongDimToS3',
+    python_callable=load_tables,
+    op_kwargs={
+        'key':today_str+'/song_dim.json',
+        'bucketname':'spotify-top-50',
+        "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='song_dim') }}"
+    },
+    dag=dag
+)
+#Put the song artist brudge in S3
+stage_song_arist_bridge=PythonOperator(
+    task_id='SongArtistBridgeToS3',
+    python_callable=load_tables,
+    op_kwargs={
+        'key':today_str+'/song_arist_bridge.json',
+        'bucketname':'spotify-top-50',
+        "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='song_arist_bridge') }}"
+    },
+    dag=dag
+)
+#Put the song artist fact in S3
+stage_artist_fact=PythonOperator(
+    task_id='ArtistFactToS3',
+    python_callable=load_tables,
+    op_kwargs={
+        'key':today_str+'/artist_fact.json',
+        'bucketname':'spotify-top-50',
+        "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='artist_fact') }}"
+    },
+    dag=dag
+)
+#Put the Artist Dimension in S3
+stage_artist_dime=PythonOperator(
+    task_id='ArtistDimesnionToS3',
+    python_callable=load_tables,
+    op_kwargs={
+        'key':today_str+'/artist_dimension.json',
+        'bucketname':'spotify-top-50',
+        "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='artist_dimension') }}"
+    },
+    dag=dag
+)
+
+#Put the artist genre bridge in S3
+stage_artist_genre_bridge=PythonOperator(
+    task_id='ArtistGenreBridgeToS3',
+    python_callable=load_tables,
+    op_kwargs={
+        'key':today_str+'/artist_genre_bridge.json',
+        'bucketname':'spotify-top-50',
+        "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='artist_genre_bridge') }}"
+    },
+    dag=dag
+)
+
+#Put the genre bridge in S3
+stage_genre=PythonOperator(
+    task_id='GenreToS3',
+    python_callable=load_tables,
+    op_kwargs={
+        'key':today_str+'/genre_bridge.json',
+        'bucketname':'spotify-top-50',
+        "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='genre') }}"
+    },
+    dag=dag
+)
+
+start_etl >> \
+authenticate >> \
+get_songs >> \
+[artist_info, audio_quality] >> \
+data_transformations >> \
+[stage_song_fact, stage_song_dim, stage_song_arist_bridge, stage_artist_fact, stage_artist_dime, stage_artist_genre_bridge, stage_genre]
