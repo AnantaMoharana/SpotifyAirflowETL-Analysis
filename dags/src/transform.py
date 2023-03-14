@@ -39,8 +39,7 @@ def transform_data(ti):
     artist_fact=artists_df[['artist_id','popularity','followers']]
 
     #Create the artist dimension table 
-    artist_dimension=pd.merge(songs_df,audio_df, left_on='artist_id',right_on='id',how='inner')
-    artist_dimension=artist_dimension[['artist_name','id']]
+    artist_dimension=songs_df[['artist_name','artist_id']]
     artist_dimension.drop_duplicates(inplace=True)
 
     #Create the artist genre bridge table 

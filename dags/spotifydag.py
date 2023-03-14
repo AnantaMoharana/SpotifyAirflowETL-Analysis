@@ -6,7 +6,7 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 from src.extract import authenitcate_api, get_songs_from_playlist, get_artist_info, get_song_audio_quality
 from src.transform import transform_data
-from src.load import load_tables
+from src.load import load_tables, json_to_csv
 
 #Get todays date
 today_str = datetime.today().strftime('%Y-%m-%d')
@@ -155,9 +155,29 @@ stage_genre=PythonOperator(
     dag=dag
 )
 
+#Convert the jsons to CSV
+json_csv=PythonOperator(
+    task_id='JsonToCSV',
+    python_callable=json_to_csv,
+    op_kwargs={
+        'pay_load':{"s3_bucket":"spotify-top-50", "s3_folder":today_str}
+    },
+    dag=dag
+)
+
+
+#Create end etl task
+finished = DummyOperator(
+    task_id = 'ETLDone',  
+    dag = dag
+)
+
+
 start_etl >> \
 authenticate >> \
 get_songs >> \
 [artist_info, audio_quality] >> \
 data_transformations >> \
-[stage_song_fact, stage_song_dim, stage_song_arist_bridge, stage_artist_fact, stage_artist_dime, stage_artist_genre_bridge, stage_genre]
+[stage_song_fact, stage_song_dim, stage_song_arist_bridge, stage_artist_fact, stage_artist_dime, stage_artist_genre_bridge, stage_genre] >> \
+json_csv >> \
+finished
