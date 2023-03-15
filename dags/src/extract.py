@@ -137,7 +137,7 @@ def get_song_audio_quality(ti):
     BASE_URL = 'https://api.spotify.com/v1/'
 
     #Create a dataframe ot hold all the information about the song audio
-    audio_df = pd.DataFrame(columns=['id','acousticness','danceability','duration_ms', 'energy', 'instrumentalness','key', 'liveness', 'loudness', 'speechiness','tempo', 'valence']) 
+    audio_df = pd.DataFrame(columns=['id','acousticness','danceability','duration_ms', 'energy', 'instrumentalness','key', 'liveness', 'loudness', 'speechiness','tempo', 'valence','mode']) 
     for id in song_ids:
         #Get the release date of the song
         r=requests.get(BASE_URL + 'audio-features/' + id, headers=headers)
@@ -164,8 +164,10 @@ def get_song_audio_quality(ti):
         tempo=r['tempo']
         #Get valence
         valence=r['valence']
+        #Get mode
+        mode=r['mode']
         #Create a new row
-        new_row = pd.DataFrame({'id':id,'acousticness':acousticness,'danceability':danceability,'duration_ms':duration_ms, 'energy':energy, 'instrumentalness':instrumentalness,'key':key, 'liveness':liveness, 'loudness':loudness, 'speechiness':speechiness,'tempo':tempo, 'valence':valence }, index=[0])
+        new_row = pd.DataFrame({'id':id,'acousticness':acousticness,'danceability':danceability,'duration_ms':duration_ms, 'energy':energy, 'instrumentalness':instrumentalness,'key':key, 'liveness':liveness, 'loudness':loudness, 'speechiness':speechiness,'tempo':tempo, 'valence':valence,'mode':mode }, index=[0])
         audio_df = pd.concat([new_row,audio_df.loc[:]]).reset_index(drop=True)
 
     ti.xcom_push(key='audio_df',value=audio_df.to_json())

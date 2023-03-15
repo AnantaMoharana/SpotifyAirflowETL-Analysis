@@ -119,17 +119,6 @@ stage_artist_fact=PythonOperator(
     },
     dag=dag
 )
-#Put the Artist Dimension in S3
-stage_artist_dime=PythonOperator(
-    task_id='ArtistDimesnionToS3',
-    python_callable=load_tables,
-    op_kwargs={
-        'key':today_str+'/artist_dimension.json',
-        'bucketname':'spotify-top-50',
-        "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='artist_dimension') }}"
-    },
-    dag=dag
-)
 
 #Put the artist genre bridge in S3
 stage_artist_genre_bridge=PythonOperator(
@@ -143,12 +132,12 @@ stage_artist_genre_bridge=PythonOperator(
     dag=dag
 )
 
-#Put the genre bridge in S3
+#Put the genres in S3
 stage_genre=PythonOperator(
     task_id='GenreToS3',
     python_callable=load_tables,
     op_kwargs={
-        'key':today_str+'/genre_bridge.json',
+        'key':today_str+'/genre.json',
         'bucketname':'spotify-top-50',
         "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='genre') }}"
     },
@@ -178,6 +167,6 @@ authenticate >> \
 get_songs >> \
 [artist_info, audio_quality] >> \
 data_transformations >> \
-[stage_song_fact, stage_song_dim, stage_song_arist_bridge, stage_artist_fact, stage_artist_dime, stage_artist_genre_bridge, stage_genre] >> \
+[stage_song_fact, stage_song_dim, stage_song_arist_bridge, stage_artist_fact, stage_artist_genre_bridge, stage_genre] >> \
 json_csv >> \
 finished
