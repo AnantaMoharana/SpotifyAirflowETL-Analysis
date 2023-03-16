@@ -1,0 +1,46 @@
+[2023-03-16T04:29:45.228+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistDim.ValidateArtistDim manual__2023-03-16T04:25:58.412323+00:00 [queued]>
+[2023-03-16T04:29:45.241+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistDim.ValidateArtistDim manual__2023-03-16T04:25:58.412323+00:00 [queued]>
+[2023-03-16T04:29:45.242+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-16T04:29:45.242+0000] {taskinstance.py:1280} INFO - Starting attempt 3 of 5
+[2023-03-16T04:29:45.242+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-16T04:29:45.266+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): ValidateAndLoadArtistDim.ValidateArtistDim> on 2023-03-16 04:25:58.412323+00:00
+[2023-03-16T04:29:45.274+0000] {standard_task_runner.py:55} INFO - Started process 5583 to run task
+[2023-03-16T04:29:45.286+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateAndLoadArtistDim.ValidateArtistDim', 'manual__2023-03-16T04:25:58.412323+00:00', '--job-id', '981', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmpz51kqoqi']
+[2023-03-16T04:29:45.287+0000] {standard_task_runner.py:83} INFO - Job 981: Subtask ValidateAndLoadArtistDim.ValidateArtistDim
+[2023-03-16T04:29:45.425+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistDim.ValidateArtistDim manual__2023-03-16T04:25:58.412323+00:00 [running]> on host 18c42e4ef76b
+[2023-03-16T04:29:46.132+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=ValidateAndLoadArtistDim.ValidateArtistDim
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-16T04:25:58.412323+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-16T04:25:58.412323+00:00
+[2023-03-16T04:29:46.134+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/transform.py", line 66, in validate_data
+    data_table=pd.read_json(data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 207, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/json/_json.py", line 614, in read_json
+    return json_reader.read()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/json/_json.py", line 748, in read
+    obj = self._get_object_parser(self.data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/json/_json.py", line 770, in _get_object_parser
+    obj = FrameParser(json, **kwargs).parse()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/json/_json.py", line 885, in parse
+    self._parse_no_numpy()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/json/_json.py", line 1140, in _parse_no_numpy
+    loads(json, precise_float=self.precise_float), dtype=None
+ValueError: Unexpected character found when decoding 'NaN'
+[2023-03-16T04:29:46.165+0000] {taskinstance.py:1323} INFO - Marking task as UP_FOR_RETRY. dag_id=Spotify_Data_ETL, task_id=ValidateAndLoadArtistDim.ValidateArtistDim, execution_date=20230316T042558, start_date=20230316T042945, end_date=20230316T042946
+[2023-03-16T04:29:46.194+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 981 for task ValidateAndLoadArtistDim.ValidateArtistDim (Unexpected character found when decoding 'NaN'; 5583)
+[2023-03-16T04:29:46.278+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-03-16T04:29:46.306+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

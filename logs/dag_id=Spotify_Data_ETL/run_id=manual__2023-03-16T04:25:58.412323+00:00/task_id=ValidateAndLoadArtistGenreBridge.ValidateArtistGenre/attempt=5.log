@@ -1,0 +1,32 @@
+[2023-03-16T04:30:49.196+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistGenreBridge.ValidateArtistGenre manual__2023-03-16T04:25:58.412323+00:00 [queued]>
+[2023-03-16T04:30:49.208+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistGenreBridge.ValidateArtistGenre manual__2023-03-16T04:25:58.412323+00:00 [queued]>
+[2023-03-16T04:30:49.209+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-16T04:30:49.209+0000] {taskinstance.py:1280} INFO - Starting attempt 5 of 5
+[2023-03-16T04:30:49.209+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-16T04:30:49.226+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): ValidateAndLoadArtistGenreBridge.ValidateArtistGenre> on 2023-03-16 04:25:58.412323+00:00
+[2023-03-16T04:30:49.232+0000] {standard_task_runner.py:55} INFO - Started process 5707 to run task
+[2023-03-16T04:30:49.255+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateAndLoadArtistGenreBridge.ValidateArtistGenre', 'manual__2023-03-16T04:25:58.412323+00:00', '--job-id', '996', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmpcpplj19g']
+[2023-03-16T04:30:49.259+0000] {standard_task_runner.py:83} INFO - Job 996: Subtask ValidateAndLoadArtistGenreBridge.ValidateArtistGenre
+[2023-03-16T04:30:49.370+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistGenreBridge.ValidateArtistGenre manual__2023-03-16T04:25:58.412323+00:00 [running]> on host 18c42e4ef76b
+[2023-03-16T04:30:49.736+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=ValidateAndLoadArtistGenreBridge.ValidateArtistGenre
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-16T04:25:58.412323+00:00
+AIRFLOW_CTX_TRY_NUMBER=5
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-16T04:25:58.412323+00:00
+[2023-03-16T04:30:49.748+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/transform.py", line 69, in validate_data
+    if data_table.duplicated.any():
+AttributeError: 'function' object has no attribute 'any'
+[2023-03-16T04:30:49.764+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=Spotify_Data_ETL, task_id=ValidateAndLoadArtistGenreBridge.ValidateArtistGenre, execution_date=20230316T042558, start_date=20230316T043049, end_date=20230316T043049
+[2023-03-16T04:30:49.775+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 996 for task ValidateAndLoadArtistGenreBridge.ValidateArtistGenre ('function' object has no attribute 'any'; 5707)
+[2023-03-16T04:30:49.818+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-03-16T04:30:49.852+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

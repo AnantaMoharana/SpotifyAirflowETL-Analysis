@@ -1,0 +1,23 @@
+[2023-03-16T04:27:56.349+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.GetAudioQuality manual__2023-03-16T04:25:58.412323+00:00 [queued]>
+[2023-03-16T04:27:56.361+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.GetAudioQuality manual__2023-03-16T04:25:58.412323+00:00 [queued]>
+[2023-03-16T04:27:56.362+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-16T04:27:56.362+0000] {taskinstance.py:1280} INFO - Starting attempt 2 of 4
+[2023-03-16T04:27:56.363+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-16T04:27:56.374+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): GetAudioQuality> on 2023-03-16 04:25:58.412323+00:00
+[2023-03-16T04:27:56.380+0000] {standard_task_runner.py:55} INFO - Started process 5389 to run task
+[2023-03-16T04:27:56.383+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'GetAudioQuality', 'manual__2023-03-16T04:25:58.412323+00:00', '--job-id', '960', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmpz28s35fu']
+[2023-03-16T04:27:56.384+0000] {standard_task_runner.py:83} INFO - Job 960: Subtask GetAudioQuality
+[2023-03-16T04:27:56.440+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.GetAudioQuality manual__2023-03-16T04:25:58.412323+00:00 [running]> on host 18c42e4ef76b
+[2023-03-16T04:27:56.706+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=GetAudioQuality
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-16T04:25:58.412323+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-16T04:25:58.412323+00:00
+[2023-03-16T04:28:37.800+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-16T04:28:37.807+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=GetAudioQuality, execution_date=20230316T042558, start_date=20230316T042756, end_date=20230316T042837
+[2023-03-16T04:28:37.851+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-03-16T04:28:37.870+0000] {taskinstance.py:2578} INFO - 1 downstream tasks scheduled from follow-on schedule check
