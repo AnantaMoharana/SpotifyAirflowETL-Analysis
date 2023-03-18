@@ -1,0 +1,49 @@
+[2023-03-18T04:10:13.605+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongArtistBridge.ValidateSongArtistBridge manual__2023-03-18T03:59:25.819409+00:00 [queued]>
+[2023-03-18T04:10:13.615+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongArtistBridge.ValidateSongArtistBridge manual__2023-03-18T03:59:25.819409+00:00 [queued]>
+[2023-03-18T04:10:13.615+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-18T04:10:13.616+0000] {taskinstance.py:1280} INFO - Starting attempt 3 of 5
+[2023-03-18T04:10:13.616+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-18T04:10:13.631+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): ValidateAndLoadSongArtistBridge.ValidateSongArtistBridge> on 2023-03-18 03:59:25.819409+00:00
+[2023-03-18T04:10:13.637+0000] {standard_task_runner.py:55} INFO - Started process 1177 to run task
+[2023-03-18T04:10:13.643+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateAndLoadSongArtistBridge.ValidateSongArtistBridge', 'manual__2023-03-18T03:59:25.819409+00:00', '--job-id', '1411', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmp3wq2yypu']
+[2023-03-18T04:10:13.645+0000] {standard_task_runner.py:83} INFO - Job 1411: Subtask ValidateAndLoadSongArtistBridge.ValidateSongArtistBridge
+[2023-03-18T04:10:13.746+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongArtistBridge.ValidateSongArtistBridge manual__2023-03-18T03:59:25.819409+00:00 [running]> on host d7c7ac56d661
+[2023-03-18T04:10:13.845+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=ValidateAndLoadSongArtistBridge.ValidateSongArtistBridge
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-18T03:59:25.819409+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-18T03:59:25.819409+00:00
+[2023-03-18T04:10:13.849+0000] {logging_mixin.py:137} INFO - {"track_id":{"0":"6Sq7ltF9Qa7SNFBsV5Cogx","1":"6Sq7ltF9Qa7SNFBsV5Cogx","2":"5IgjP7X4th6nMNDh4akUHb","3":"1bDbXMyjaUIooNwFE9wn0N","4":"1bDbXMyjaUIooNwFE9wn0N","5":"0VjIjW4GlUZAMYd2vXMi3b","6":"1DxEbt6OSbrkRthk6pjZue","7":"1DxEbt6OSbrkRthk6pjZue","8":"1DxEbt6OSbrkRthk6pjZue","9":"4FyesJzVpA39hbYvcseO2d","10":"561jH07mF1jHuk7KlaeF0s","11":"54ipXppHLA8U4yqpOFTUhr","12":"0CYTGMBYkwUxrj1MWDLrC5","13":"4iZ4pt7kvcaH6Yo8UoZ4s2","14":"0JXXNGljqupsJaZsgSbMZV","15":"6otePxalBK8AVa20xhZYVQ","16":"4NoOME4Dhf4xgxbHDT7VGe","17":"4NoOME4Dhf4xgxbHDT7VGe","18":"2mnXxnrX5vCGolNkaFvVeM","19":"2mnXxnrX5vCGolNkaFvVeM","20":"1lRtH4FszTrwwlK5gTSbXO","21":"1lRtH4FszTrwwlK5gTSbXO","22":"1lRtH4FszTrwwlK5gTSbXO","23":"4fYte8ZvTK14NEhAOZocBi","24":"2CeKVsFFXG4QzA415QygGb","25":"2L9N0zZnd37dwF0clgxMGI","26":"04CqLjewJiSAqM210vZAmT","27":"5XeFesFbtLpXzIVDNQP22n","28":"6UN73IYd0hZxLi8wFPMQij","29":"2tTmW7RDtMQtBk7m2rYeSw","30":"2tTmW7RDtMQtBk7m2rYeSw","31":"2mpoNBkngUEwnaKoBhZ0vl","32":"2mpoNBkngUEwnaKoBhZ0vl","33":"5odlY52u43F5BjByhxg7wg","34":"7jtQIBanIiJOMS6RyCx6jZ","35":"38UYeBLfvpnDSG9GznZdnL","36":"38UYeBLfvpnDSG9GznZdnL","37":"3XjvMZqm2AQ8thMCD6w9w2","38":"3XjvMZqm2AQ8thMCD6w9w2","39":"3XjvMZqm2AQ8thMCD6w9w2","40":"7MXVkk9YMctZqd1Srtv4MB","41":"7MXVkk9YMctZqd1Srtv4MB","42":"65FftemJ1DbbZ45DUfHJXE","43":"5mHdCZtVyb4DcJw8799hZp","44":"5mHdCZtVyb4DcJw8799hZp","45":"1zsPaEkglFvxjAhrM8yhpr","46":"1zsPaEkglFvxjAhrM8yhpr","47":"1Y3LN4zO1Edc2EluIoSPJN","48":"1Y3LN4zO1Edc2EluIoSPJN","49":"78Sw5GDo6AlGwTwanjXbGh","50":"7K3BhSpAxZBznislvUMVtn","51":"55ZATsjPlTeSTNJOuW90pW","52":"55ZATsjPlTeSTNJOuW90pW","53":"0V3wPSX9ygBnCm8psDIegu","54":"2LBqCSwhJGcFQeTHMVGwy3","55":"4uUG5RXrOk84mYEfFvj3cK","56":"4uUG5RXrOk84mYEfFvj3cK","57":"5ww2BF9slyYgNOk37BlC4u","58":"0NZPBYD5qbEWRs3PrGiRkT","59":"0NZPBYD5qbEWRs3PrGiRkT","60":"0WtM2NBVQNNJLh6scP13H8","61":"0WtM2NBVQNNJLh6scP13H8","62":"4FAKtPVycI4DxoOHC01YqD","63":"4FAKtPVycI4DxoOHC01YqD","64":"2dHHgzDwk4BJdRwy9uXhTO","65":"2dHHgzDwk4BJdRwy9uXhTO","66":"2dHHgzDwk4BJdRwy9uXhTO","67":"4Dvkj6JhhA12EX05fT7y2e","68":"4nrPB8O7Y7wsOCJdgXkthe","69":"4nrPB8O7Y7wsOCJdgXkthe","70":"4W4fNrZYkobj539TOWsLO2","71":"4W4fNrZYkobj539TOWsLO2","72":"6AQbmUe0Qwf5PZnt4HmTXv","73":"6AQbmUe0Qwf5PZnt4HmTXv","74":"1Qrg8KqiBpW07V7PNxwwwL","75":"0DWdj2oZMBFSzRsi2Cvfzf","76":"0DWdj2oZMBFSzRsi2Cvfzf","77":"4DHcnVTT87F0zZhRPYmZ3B"},"artist_id":{"0":"37230BxxYs9ksS7OkZw3IU","1":"4q3ewBCX7sLwd24euuV69X","2":"7bXgB6jMjp9ATFy66eO08Z","3":"1URnnhqYAYcrqrcwql10ft","4":"3TVXtAsR1Inumwj472S9r4","5":"1Xyo4u8uXC1ZmMpatF05PJ","6":"0uxYECT7XqHNccQAg5Uhe4","7":"48R2gYdPKtfnfKAzhSVPUx","8":"0niAkxgT6y57bRbT0Ge94z","9":"4O15NlyKLIASxsJ0PrXPfz","10":"7dGJo4pcD2V6oG8kP0tJRR","11":"53XhwfbYqKCa1cC15pYq2q","12":"2LRoIwlKmHjgvigdNGBHNo","13":"7tYKF4w9nC0nq9CsPZTHyP","14":"360IAlyVv4PCEVjgyMZrxK","15":"790FomKkXshlbRYZFtlgla","16":"5lwmRuXgjX8xIwlnauTZIP","17":"790FomKkXshlbRYZFtlgla","18":"4q3ewBCX7sLwd24euuV69X","19":"4SsVbpTthjScTS7U2hmr1X","20":"6Sbl0NT50roqWvy746MfVf","21":"12GqGscKJx3aE4t07u7eVZ","22":"0elWFr7TW8piilVRYJUe4P","23":"5Pwc4xIPtQLFEnJriah9YJ","24":"2LRoIwlKmHjgvigdNGBHNo","25":"1GmsPCcpKgF9OhlNXjOsbS","26":"5YGY8feqx7naU7z4HrwZM6","27":"7Ln80lUS6He07XvHI8qqHH","28":"6AMd49uBDJfhf30Ak2QR5s","29":"52iwsT98xCoGgiGntTiR7K","30":"716NhGYqD1jl2wI1Qkgq36","31":"0elWFr7TW8piilVRYJUe4P","32":"12GqGscKJx3aE4t07u7eVZ","33":"164Uj4eKjl6zTBKfJLFKKK","34":"2txHhyCwHjUEpJjWrEyqyX","35":"4q3ewBCX7sLwd24euuV69X","36":"3AA28KZvwAUcZuOKwyblJQ","37":"64aJYyrXljOodnUG6jvhRD","38":"2T1aUibqR2QC2sINIDQOAK","39":"2R21vXR83lH98kGeO99Y66","40":"4tZwfgrHOc3mvqYlEYSvVi","41":"1Xyo4u8uXC1ZmMpatF05PJ","42":"6HvZYsbFfjnjFrWF950C9d","43":"12Zk1DFhCbHY6v3xep2ZjI","44":"5KKpBU5eC2tJDzf0wmlRp2","45":"2LRoIwlKmHjgvigdNGBHNo","46":"1i8SpTcr7yvPOmcqrbnVXY","47":"7o2ZQYM7nTsaVdkXY38UAA","48":"5XKFrudbV4IiuE5WuTPRmT","49":"5y8tKLUfMvliMe8IKamR32","50":"4oUHIQIBe0LHzYfvXNW4QM","51":"4yEIQ0lJDgUEfsuYx3Gsmr","52":"07PdYoE4jVRF6Ut40GgVSP","53":"06HL4z0CvFAxyc27GXpf02","54":"1Xyo4u8uXC1ZmMpatF05PJ","55":"64M6ah0SkkRsnPGtGiRAbb","56":"1Cs0zKBU1kc0i8ypK3B9ai","57":"0tmwSHipWxN12fsoLcFU3B","58":"3Xt3RrJMFv5SZkCfUE8C1J","59":"2wY79sveU1sp5g7SokKOiI","60":"0C8ZW7ezQVs4URX5aX7Kqx","61":"46pWGuE3dSwY3bMMXGBvVS","62":"2LRoIwlKmHjgvigdNGBHNo","63":"0eHQ9o50hj6ZDNBt6Ys1sD","64":"1URnnhqYAYcrqrcwql10ft","65":"1Xyo4u8uXC1ZmMpatF05PJ","66":"0iEtIxbK0KxaSlF7G42ZOp","67":"6KImCVD70vtIoJWnq6nGn3","68":"0EmeFodog0BfCgMzAIvKQp","69":"716NhGYqD1jl2wI1Qkgq36","70":"66CXWjxzNUsdJxJ2JdwvnR","71":"1Xyo4u8uXC1ZmMpatF05PJ","72":"3LZZPxNDGDFVSIPqf4JuEf","73":"78rUTD7y6Cy67W1RVzYs7t","74":"7tYKF4w9nC0nq9CsPZTHyP","75":"0EmeFodog0BfCgMzAIvKQp","76":"790FomKkXshlbRYZFtlgla","77":"5YGY8feqx7naU7z4HrwZM6"}}
+[2023-03-18T04:10:13.850+0000] {logging_mixin.py:137} INFO - ['track_id', 'artist_id']
+[2023-03-18T04:10:13.850+0000] {logging_mixin.py:137} INFO - song_artist_bridge
+[2023-03-18T04:10:13.864+0000] {logging_mixin.py:137} INFO -                   track_id               artist_id
+0   6Sq7ltF9Qa7SNFBsV5Cogx  37230BxxYs9ksS7OkZw3IU
+1   6Sq7ltF9Qa7SNFBsV5Cogx  4q3ewBCX7sLwd24euuV69X
+2   5IgjP7X4th6nMNDh4akUHb  7bXgB6jMjp9ATFy66eO08Z
+3   1bDbXMyjaUIooNwFE9wn0N  1URnnhqYAYcrqrcwql10ft
+4   1bDbXMyjaUIooNwFE9wn0N  3TVXtAsR1Inumwj472S9r4
+..                     ...                     ...
+73  6AQbmUe0Qwf5PZnt4HmTXv  78rUTD7y6Cy67W1RVzYs7t
+74  1Qrg8KqiBpW07V7PNxwwwL  7tYKF4w9nC0nq9CsPZTHyP
+75  0DWdj2oZMBFSzRsi2Cvfzf  0EmeFodog0BfCgMzAIvKQp
+76  0DWdj2oZMBFSzRsi2Cvfzf  790FomKkXshlbRYZFtlgla
+77  4DHcnVTT87F0zZhRPYmZ3B  5YGY8feqx7naU7z4HrwZM6
+
+[78 rows x 2 columns]
+[2023-03-18T04:10:13.866+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/transform.py", line 73, in validate_data
+    if len(data_table.drop_duplicates(inplace=True)) != len(data_table):
+TypeError: object of type 'NoneType' has no len()
+[2023-03-18T04:10:13.876+0000] {taskinstance.py:1323} INFO - Marking task as UP_FOR_RETRY. dag_id=Spotify_Data_ETL, task_id=ValidateAndLoadSongArtistBridge.ValidateSongArtistBridge, execution_date=20230318T035925, start_date=20230318T041013, end_date=20230318T041013
+[2023-03-18T04:10:13.882+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 1411 for task ValidateAndLoadSongArtistBridge.ValidateSongArtistBridge (object of type 'NoneType' has no len(); 1177)
+[2023-03-18T04:10:13.932+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-03-18T04:10:13.953+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

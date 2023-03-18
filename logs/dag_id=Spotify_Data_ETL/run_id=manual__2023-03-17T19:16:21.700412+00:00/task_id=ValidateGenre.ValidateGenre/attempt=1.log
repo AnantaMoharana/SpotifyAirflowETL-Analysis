@@ -1,0 +1,40 @@
+[2023-03-17T19:16:36.257+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateGenre.ValidateGenre manual__2023-03-17T19:16:21.700412+00:00 [queued]>
+[2023-03-17T19:16:36.265+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateGenre.ValidateGenre manual__2023-03-17T19:16:21.700412+00:00 [queued]>
+[2023-03-17T19:16:36.265+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-17T19:16:36.266+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 3
+[2023-03-17T19:16:36.266+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-17T19:16:36.281+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): ValidateGenre.ValidateGenre> on 2023-03-17 19:16:21.700412+00:00
+[2023-03-17T19:16:36.289+0000] {standard_task_runner.py:55} INFO - Started process 6083 to run task
+[2023-03-17T19:16:36.308+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateGenre.ValidateGenre', 'manual__2023-03-17T19:16:21.700412+00:00', '--job-id', '1355', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmppfjc__7p']
+[2023-03-17T19:16:36.309+0000] {standard_task_runner.py:83} INFO - Job 1355: Subtask ValidateGenre.ValidateGenre
+[2023-03-17T19:16:36.421+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.ValidateGenre.ValidateGenre manual__2023-03-17T19:16:21.700412+00:00 [running]> on host 8f7fdf71f1bb
+[2023-03-17T19:16:36.537+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=ValidateGenre.ValidateGenre
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-17T19:16:21.700412+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-17T19:16:21.700412+00:00
+[2023-03-17T19:16:36.567+0000] {logging_mixin.py:137} INFO - {"genre":{"0":"pop","1":"canadian pop","2":"canadian contemporary r&b","3":"post-teen pop","5":"dance pop","6":"new jersey rap","9":"mexican hip hop","10":"latin hip hop","11":"contemporary country","13":"urbano latino","14":"trap latino","15":"reggaeton","17":"gen z singer-songwriter","19":"indie pop","20":"boston folk","21":"rap","22":"hip hop","23":"detroit hip hop","27":"trap triste","28":"trap argentino","29":"k-pop girl group","30":"k-pop","33":"atl hip hop","34":"pop dance","36":"edm","38":"big room","40":"piano rock","42":"reggaeton colombiano","43":"pop reggaeton","44":"colombian pop","45":"sad sierreno","49":"latin pop","53":"reggaeton flow","54":"viral rap","55":"trap queen","57":"new jersey underground rap","58":"bedroom pop","59":"alternative hip hop","60":"sheffield indie","61":"rock","62":"permanent wave","63":"modern rock","64":"garage rock","65":"modern indie pop","67":"bachata","68":"uk pop","70":"nigerian pop","71":"transpop","74":"electropop","80":"chill pop","81":"cumbia pop","82":"r&b","84":"sierreno","86":"nueva musica mexicana","87":"musica mexicana","88":"corridos tumbados","89":"corrido","96":"alt z","97":"uk contemporary r&b","111":"trap boricua","117":"puerto rican pop","118":"trap","120":"philly rap","121":"melodic rap","122":"filter house","123":"electro","133":"pop venezolano","134":"argentine hip hop","135":"rap canario","136":"toronto rap","140":"canadian hip hop"}}
+[2023-03-17T19:16:36.572+0000] {logging_mixin.py:137} INFO - ['genre']
+[2023-03-17T19:16:36.573+0000] {logging_mixin.py:137} INFO - genre
+[2023-03-17T19:16:36.590+0000] {logging_mixin.py:137} INFO -                     genre
+0                     pop
+1            canadian pop
+10          latin hip hop
+11   contemporary country
+111          trap boricua
+..                    ...
+88      corridos tumbados
+89                corrido
+9         mexican hip hop
+96                  alt z
+97    uk contemporary r&b
+
+[71 rows x 1 columns]
+[2023-03-17T19:16:36.591+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-17T19:16:36.622+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=ValidateGenre.ValidateGenre, execution_date=20230317T191621, start_date=20230317T191636, end_date=20230317T191636
+[2023-03-17T19:16:36.687+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-03-17T19:16:36.708+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -3,8 +3,9 @@ from datetime import datetime, timedelta
 import pandas as pd
 from airflow import DAG
 from airflow.utils.task_group import TaskGroup
-from airflow.operators.dummy_operator import DummyOperator
-from airflow.operators.python_operator import PythonOperator
+from airflow.providers.amazon.aws.transfers.s3_to_redshift import S3ToRedshiftOperator
+from airflow.operators.empty import EmptyOperator
+from airflow.operators.python import PythonOperator
 from src.extract import authenitcate_api, get_songs_from_playlist, get_artist_info, get_song_audio_quality
 from src.transform import transform_data, validate_data
 from src.load import load_tables, json_to_csv
@@ -30,7 +31,7 @@ with DAG(
     ) as dag:
 
     #Create start etl task
-    start_etl = DummyOperator(
+    start_etl = EmptyOperator(
         task_id = 'StartETL',  
         dag = dag
     )
@@ -134,7 +135,7 @@ with DAG(
             task_id='ValidateSongArtistBridge',
             python_callable=validate_data,
             op_kwargs={
-                'data':"{{ task_instance.xcom_pull(task_ids='TransformData', key='song_arist_bridge') }}",
+                'data':"{{ task_instance.xcom_pull(task_ids='TransformData', key='song_artist_bridge') }}",
                 'columns':['track_id','artist_id'],
                 "table": "song_artist_bridge"
             },
@@ -147,7 +148,7 @@ with DAG(
             op_kwargs={
                 'key':today_str+'/song_arist_bridge.json',
                 'bucketname':'spotify-top-50',
-                "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='song_arist_bridge') }}"
+                "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='song_artist_bridge') }}"
             },
             dag=dag
         )
@@ -181,15 +182,15 @@ with DAG(
         validate_artist_fact >> stage_artist_fact
 
     #Validate and put Artist Genre in S3
-    with TaskGroup('ValidateAndLoadArtistGenreBridge') as PrepareArtistGenreBridge:
+    with TaskGroup('ValidateAndLoadArtistGenreFact') as PrepareArtistGenreFact:
         #Validate the artist fact
         validate_artist_genre=PythonOperator(
             task_id='ValidateArtistGenre',
             python_callable=validate_data,
             op_kwargs={
-                'data':"{{ task_instance.xcom_pull(task_ids='TransformData', key='artist_genre_bridge') }}",
+                'data':"{{ task_instance.xcom_pull(task_ids='TransformData', key='artist_genre_fact') }}",
                 'columns':['artist_id','genre'],
-                "table": "artist_genre_bridge"
+                "table": "artist_genre_bfact"
             },
             dag=dag
         )
@@ -198,39 +199,13 @@ with DAG(
             task_id='ArtistGenreBridgeToS3',
             python_callable=load_tables,
             op_kwargs={
-                'key':today_str+'/artist_genre_bridge.json',
+                'key':today_str+'/artist_genre_fact.json',
                 'bucketname':'spotify-top-50',
-                "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='artist_genre_bridge') }}"
+                "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='artist_genre_fact') }}"
             },
             dag=dag
         )
         validate_artist_genre >> stage_artist_genre_bridge
-
-    #Validate and put Genre  in S3
-    with TaskGroup('ValidateGenre') as PrepareGenre:
-        #Validate the artist fact
-        validate_artist_genre=PythonOperator(
-            task_id='ValidateGenre',
-            python_callable=validate_data,
-            op_kwargs={
-                'data':"{{ task_instance.xcom_pull(task_ids='TransformData', key='genre') }}",
-                'columns':['genre'],
-                "table": "genre"
-            },
-            dag=dag
-        )
-        #Put the genre bridge in S3
-        stage_genre=PythonOperator(
-            task_id='GenreToS3',
-            python_callable=load_tables,
-            op_kwargs={
-                'key':today_str+'/genre_bridge.json',
-                'bucketname':'spotify-top-50',
-                "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='genre') }}"
-            },
-            dag=dag
-        )
-        validate_artist_genre >> stage_genre
 
     #Convert the jsons to CSV
     json_csv=PythonOperator(
@@ -244,7 +219,7 @@ with DAG(
 
 
     #Create end etl task
-    finished = DummyOperator(
+    finished = EmptyOperator(
         task_id = 'ETLDone',  
         dag = dag
     )
@@ -255,7 +230,7 @@ authenticate >> \
 get_songs >> \
 [artist_info, audio_quality] >> \
 data_transformations >> \
-[PrepareLoadSongFact,PrepareLoadSongDim,PrepareArtistFact, PrepareArtistGenreBridge, PrepareGenre, PrepareSongArtistBridge ] >> \
+[PrepareLoadSongFact,PrepareLoadSongDim,PrepareArtistFact, PrepareArtistGenreFact, PrepareSongArtistBridge ] >> \
 json_csv >> \
 finished
 

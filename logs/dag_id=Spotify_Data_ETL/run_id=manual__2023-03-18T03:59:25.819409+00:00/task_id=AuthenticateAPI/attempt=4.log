@@ -1,0 +1,24 @@
+[2023-03-18T04:12:17.653+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.AuthenticateAPI manual__2023-03-18T03:59:25.819409+00:00 [queued]>
+[2023-03-18T04:12:17.658+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.AuthenticateAPI manual__2023-03-18T03:59:25.819409+00:00 [queued]>
+[2023-03-18T04:12:17.658+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-18T04:12:17.659+0000] {taskinstance.py:1280} INFO - Starting attempt 4 of 6
+[2023-03-18T04:12:17.659+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-18T04:12:17.666+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): AuthenticateAPI> on 2023-03-18 03:59:25.819409+00:00
+[2023-03-18T04:12:17.671+0000] {standard_task_runner.py:55} INFO - Started process 1355 to run task
+[2023-03-18T04:12:17.674+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'AuthenticateAPI', 'manual__2023-03-18T03:59:25.819409+00:00', '--job-id', '1424', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmp7hq6phiq']
+[2023-03-18T04:12:17.675+0000] {standard_task_runner.py:83} INFO - Job 1424: Subtask AuthenticateAPI
+[2023-03-18T04:12:17.717+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.AuthenticateAPI manual__2023-03-18T03:59:25.819409+00:00 [running]> on host d7c7ac56d661
+[2023-03-18T04:12:17.755+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=AuthenticateAPI
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-18T03:59:25.819409+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-18T03:59:25.819409+00:00
+[2023-03-18T04:12:17.875+0000] {logging_mixin.py:137} INFO - BQC1oZDQD8XVvtw_THlw_LQXcQxs0sdH0oYF61F8KZGDKDsw0_-IpoF1ArR6qAR9ZOroKobWZOX7Cb7eM31wT0AMOEscZACkmFPDafQ_X_oSMZsEjUzc
+[2023-03-18T04:12:17.886+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-18T04:12:17.894+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=AuthenticateAPI, execution_date=20230318T035925, start_date=20230318T041217, end_date=20230318T041217
+[2023-03-18T04:12:17.928+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-03-18T04:12:17.948+0000] {taskinstance.py:2578} INFO - 1 downstream tasks scheduled from follow-on schedule check
