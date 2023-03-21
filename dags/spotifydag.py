@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 from airflow import DAG
 from airflow.utils.task_group import TaskGroup
-from airflow.providers.amazon.aws.transfers.s3_to_redshift import S3ToRedshiftOperator
+from airflow.providers.snowflake.transfers.s3_to_snowflake import S3ToSnowflakeOperator
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
 from src.extract import authenitcate_api, get_songs_from_playlist, get_artist_info, get_song_audio_quality
@@ -82,7 +82,7 @@ with DAG(
             task_id='ValidateSongFact',
             python_callable=validate_data,
             op_kwargs={
-                'columns':['track_id','popularity','date'],
+                'columns':['song_id','popularity','date'],
                 "table": "song_fact",
                 'data':"{{ task_instance.xcom_pull(task_ids='TransformData', key='song_fact') }}"
             },
@@ -109,7 +109,7 @@ with DAG(
             python_callable=validate_data,
             op_kwargs={
                 'data':"{{ task_instance.xcom_pull(task_ids='TransformData', key='song_dim') }}",
-                'columns':['song_name','track_id','is_explicit','acousticness', 'danceability','duration_ms','energy','instrumentalness','key','liveness','loudness','speechiness','tempo','valence','mode'],
+                'columns':['song_name','song_id','explicit','acousticness', 'danceability','duration_ms','energy','instrumentalness','key','liveness','loudness','speechiness','tempo','valence','mode'],
                 "table": "song_dim"
             },
             dag=dag
@@ -136,7 +136,7 @@ with DAG(
             python_callable=validate_data,
             op_kwargs={
                 'data':"{{ task_instance.xcom_pull(task_ids='TransformData', key='song_artist_bridge') }}",
-                'columns':['track_id','artist_id'],
+                'columns':['song_id','artist_id'],
                 "table": "song_artist_bridge"
             },
             dag=dag
@@ -162,7 +162,7 @@ with DAG(
             python_callable=validate_data,
             op_kwargs={
                 'data':"{{ task_instance.xcom_pull(task_ids='TransformData', key='artist_fact') }}",
-                'columns':['artist_id','artist_name','followers','popularity','date'],
+                'columns':['artist_id','followers','popularity','date'],
                 "table": "artist_fact"
             },
             dag=dag
@@ -207,6 +207,34 @@ with DAG(
         )
         validate_artist_genre >> stage_artist_genre_bridge
 
+    #Validate and put Artist Genre in S3
+    with TaskGroup('ValidateAndLoadArtistDim') as PrepareArtistDim:
+        #Validate the artist dim
+        validate_artist_dim=PythonOperator(
+            task_id='ValidateArtistDim',
+            python_callable=validate_data,
+            op_kwargs={
+                'data':"{{ task_instance.xcom_pull(task_ids='TransformData', key='artist_dim') }}",
+                'columns':['artist_name','artist_id'],
+                "table": "artist_dim"
+            },
+            dag=dag
+        )
+        #Put the artist dim  in S3
+        stage_artist_dim=PythonOperator(
+            task_id='ArtistDimToS3',
+            python_callable=load_tables,
+            op_kwargs={
+                'key':today_str+'/artist_dim.json',
+                'bucketname':'spotify-top-50',
+                "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='artist_dim') }}"
+            },
+            dag=dag
+        )
+        validate_artist_dim >> stage_artist_dim
+
+
+
     #Convert the jsons to CSV
     json_csv=PythonOperator(
         task_id='JsonToCSV',
@@ -230,7 +258,7 @@ authenticate >> \
 get_songs >> \
 [artist_info, audio_quality] >> \
 data_transformations >> \
-[PrepareLoadSongFact,PrepareLoadSongDim,PrepareArtistFact, PrepareArtistGenreFact, PrepareSongArtistBridge ] >> \
+[PrepareLoadSongFact,PrepareLoadSongDim,PrepareArtistFact, PrepareArtistGenreFact, PrepareSongArtistBridge,PrepareArtistDim ] >> \
 json_csv >> \
 finished
 

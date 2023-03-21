@@ -1,0 +1,25 @@
+[2023-03-21T02:08:03.838+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-03-18T04:27:11.434896+00:00 [queued]>
+[2023-03-21T02:08:03.844+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-03-18T04:27:11.434896+00:00 [queued]>
+[2023-03-21T02:08:03.844+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T02:08:03.844+0000] {taskinstance.py:1283} INFO - Starting attempt 5 of 7
+[2023-03-21T02:08:03.845+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T02:08:03.853+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): ValidateAndLoadSongFact.SongFactToS3> on 2023-03-18 04:27:11.434896+00:00
+[2023-03-21T02:08:03.858+0000] {standard_task_runner.py:55} INFO - Started process 16747 to run task
+[2023-03-21T02:08:03.861+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateAndLoadSongFact.SongFactToS3', 'manual__2023-03-18T04:27:11.434896+00:00', '--job-id', '1657', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmph7l2jerq']
+[2023-03-21T02:08:03.862+0000] {standard_task_runner.py:83} INFO - Job 1657: Subtask ValidateAndLoadSongFact.SongFactToS3
+[2023-03-21T02:08:03.920+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongFact.SongFactToS3 manual__2023-03-18T04:27:11.434896+00:00 [running]> on host 1fd7b08731f2
+[2023-03-21T02:08:03.990+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=ValidateAndLoadSongFact.SongFactToS3
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-18T04:27:11.434896+00:00
+AIRFLOW_CTX_TRY_NUMBER=5
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-18T04:27:11.434896+00:00
+[2023-03-21T02:08:04.001+0000] {base.py:73} INFO - Using connection ID 'aws_connection' for task execution.
+[2023-03-21T02:08:04.002+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_connection', conn_type='aws') credentials retrieved from login and password.
+[2023-03-21T02:08:04.620+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-21T02:08:04.636+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=ValidateAndLoadSongFact.SongFactToS3, execution_date=20230318T042711, start_date=20230321T020803, end_date=20230321T020804
+[2023-03-21T02:08:04.699+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-21T02:08:04.730+0000] {taskinstance.py:2585} INFO - 0 downstream tasks scheduled from follow-on schedule check
