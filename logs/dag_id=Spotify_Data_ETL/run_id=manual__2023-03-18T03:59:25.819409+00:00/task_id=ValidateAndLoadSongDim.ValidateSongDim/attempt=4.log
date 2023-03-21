@@ -1,0 +1,88 @@
+[2023-03-18T04:10:45.808+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongDim.ValidateSongDim manual__2023-03-18T03:59:25.819409+00:00 [queued]>
+[2023-03-18T04:10:45.825+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongDim.ValidateSongDim manual__2023-03-18T03:59:25.819409+00:00 [queued]>
+[2023-03-18T04:10:45.826+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-18T04:10:45.827+0000] {taskinstance.py:1280} INFO - Starting attempt 4 of 5
+[2023-03-18T04:10:45.827+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-18T04:10:45.862+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): ValidateAndLoadSongDim.ValidateSongDim> on 2023-03-18 03:59:25.819409+00:00
+[2023-03-18T04:10:45.870+0000] {standard_task_runner.py:55} INFO - Started process 1233 to run task
+[2023-03-18T04:10:45.876+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateAndLoadSongDim.ValidateSongDim', 'manual__2023-03-18T03:59:25.819409+00:00', '--job-id', '1418', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmppwv39ivy']
+[2023-03-18T04:10:45.877+0000] {standard_task_runner.py:83} INFO - Job 1418: Subtask ValidateAndLoadSongDim.ValidateSongDim
+[2023-03-18T04:10:45.951+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongDim.ValidateSongDim manual__2023-03-18T03:59:25.819409+00:00 [running]> on host d7c7ac56d661
+[2023-03-18T04:10:46.015+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=ValidateAndLoadSongDim.ValidateSongDim
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-18T03:59:25.819409+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-18T03:59:25.819409+00:00
+[2023-03-18T04:10:46.017+0000] {logging_mixin.py:137} INFO - {"song_name":{"0":"Me Porto Bonito","2":"Under The Influence","3":"Rich Flex","5":"Blinding Lights","6":"MERCHO","9":"Just Wanna Rock","10":"Mockingbird","11":"Bones","12":"CHORRITO PA LAS ANIMAS","13":"Snooze","14":"Sure Thing","15":"MIENTRAS ME CURO DEL CORA","16":"X SI VOLVEMOS","18":"La Jumpa","20":"AMG","23":"I Ain't Worried","24":"Feliz Cumplea\u00f1os Ferxxo","25":"ceilings","26":"River","27":"I Wanna Be Yours","28":"Players","29":"Quevedo: Bzrp Music Sessions, Vol. 52","31":"PRC","33":"golden hour","34":"Another Love","35":"Tormenta (feat. Bad Bunny)","37":"Mas Rica Que Ayer","40":"Starboy","42":"OMG","43":"Escapism.","45":"Hey Mor","47":"Until I Found You (with Em Beihold) - Em Beihold Version","49":"Here With Me","50":"Last Night","51":"Shorty Party","53":"Anti-Hero","54":"Die For You","55":"I'm Good (Blue)","57":"La Bachata","58":"Unholy (feat. Kim Petras)","60":"Calm Down (with Selena Gomez)","62":"Yandel 150","64":"Creepin' (with The Weeknd & 21 Savage)","67":"As It Was","68":"Shakira: Bzrp Music Sessions, Vol. 53","70":"Die For You (with Ariana Grande) - Remix","72":"Boy's a liar Pt. 2","74":"Kill Bill","75":"TQG","77":"Flowers"},"track_id":{"0":"6Sq7ltF9Qa7SNFBsV5Cogx","2":"5IgjP7X4th6nMNDh4akUHb","3":"1bDbXMyjaUIooNwFE9wn0N","5":"0VjIjW4GlUZAMYd2vXMi3b","6":"1DxEbt6OSbrkRthk6pjZue","9":"4FyesJzVpA39hbYvcseO2d","10":"561jH07mF1jHuk7KlaeF0s","11":"54ipXppHLA8U4yqpOFTUhr","12":"0CYTGMBYkwUxrj1MWDLrC5","13":"4iZ4pt7kvcaH6Yo8UoZ4s2","14":"0JXXNGljqupsJaZsgSbMZV","15":"6otePxalBK8AVa20xhZYVQ","16":"4NoOME4Dhf4xgxbHDT7VGe","18":"2mnXxnrX5vCGolNkaFvVeM","20":"1lRtH4FszTrwwlK5gTSbXO","23":"4fYte8ZvTK14NEhAOZocBi","24":"2CeKVsFFXG4QzA415QygGb","25":"2L9N0zZnd37dwF0clgxMGI","26":"04CqLjewJiSAqM210vZAmT","27":"5XeFesFbtLpXzIVDNQP22n","28":"6UN73IYd0hZxLi8wFPMQij","29":"2tTmW7RDtMQtBk7m2rYeSw","31":"2mpoNBkngUEwnaKoBhZ0vl","33":"5odlY52u43F5BjByhxg7wg","34":"7jtQIBanIiJOMS6RyCx6jZ","35":"38UYeBLfvpnDSG9GznZdnL","37":"3XjvMZqm2AQ8thMCD6w9w2","40":"7MXVkk9YMctZqd1Srtv4MB","42":"65FftemJ1DbbZ45DUfHJXE","43":"5mHdCZtVyb4DcJw8799hZp","45":"1zsPaEkglFvxjAhrM8yhpr","47":"1Y3LN4zO1Edc2EluIoSPJN","49":"78Sw5GDo6AlGwTwanjXbGh","50":"7K3BhSpAxZBznislvUMVtn","51":"55ZATsjPlTeSTNJOuW90pW","53":"0V3wPSX9ygBnCm8psDIegu","54":"2LBqCSwhJGcFQeTHMVGwy3","55":"4uUG5RXrOk84mYEfFvj3cK","57":"5ww2BF9slyYgNOk37BlC4u","58":"0NZPBYD5qbEWRs3PrGiRkT","60":"0WtM2NBVQNNJLh6scP13H8","62":"4FAKtPVycI4DxoOHC01YqD","64":"2dHHgzDwk4BJdRwy9uXhTO","67":"4Dvkj6JhhA12EX05fT7y2e","68":"4nrPB8O7Y7wsOCJdgXkthe","70":"4W4fNrZYkobj539TOWsLO2","72":"6AQbmUe0Qwf5PZnt4HmTXv","74":"1Qrg8KqiBpW07V7PNxwwwL","75":"0DWdj2oZMBFSzRsi2Cvfzf","77":"4DHcnVTT87F0zZhRPYmZ3B"},"is_explicit":{"0":true,"2":true,"3":true,"5":false,"6":false,"9":true,"10":true,"11":false,"12":true,"13":true,"14":false,"15":false,"16":true,"18":true,"20":true,"23":false,"24":false,"25":false,"26":false,"27":false,"28":true,"29":false,"31":true,"33":false,"34":true,"35":true,"37":true,"40":true,"42":false,"43":true,"45":false,"47":false,"49":false,"50":true,"51":true,"53":false,"54":false,"55":true,"57":false,"58":false,"60":false,"62":true,"64":true,"67":false,"68":false,"70":false,"72":false,"74":false,"75":true,"77":false},"acousticness":{"0":0.0901,"2":0.0635,"3":0.0503,"5":0.00146,"6":0.431,"9":0.0652,"10":0.209,"11":0.0201,"12":0.114,"13":0.141,"14":0.0267,"15":0.855,"16":0.334,"18":0.111,"20":0.152,"23":0.0988,"24":0.0863,"25":0.473,"26":0.000525,"27":0.136,"28":0.03,"29":0.0125,"31":0.0965,"33":0.653,"34":0.717,"35":0.458,"37":0.343,"40":0.141,"42":0.357,"43":0.138,"45":0.00302,"47":0.777,"49":0.534,"50":0.467,"51":0.328,"53":0.13,"54":0.111,"55":0.00383,"57":0.583,"58":0.011,"60":0.382,"62":0.0492,"64":0.417,"67":0.342,"68":0.274,"70":0.227,"72":0.252,"74":0.0521,"75":0.673,"77":0.0632},"danceability":{"0":0.911,"2":0.733,"3":0.561,"5":0.514,"6":0.838,"9":0.486,"10":0.637,"11":0.772,"12":0.743,"13":0.559,"14":0.684,"15":0.523,"16":0.794,"18":0.887,"20":0.772,"23":0.697,"24":0.865,"25":0.516,"26":0.613,"27":0.464,"28":0.954,"29":0.621,"31":0.784,"33":0.515,"34":0.442,"35":0.637,"37":0.818,"40":0.679,"42":0.804,"43":0.538,"45":0.901,"47":0.551,"49":0.574,"50":0.492,"51":0.928,"53":0.637,"54":0.586,"55":0.561,"57":0.835,"58":0.712,"60":0.801,"62":0.783,"64":0.715,"67":0.52,"68":0.778,"70":0.575,"72":0.696,"74":0.644,"75":0.72,"77":0.707},"duration_ms":{"0":178567,"2":184613,"3":239360,"5":200040,"6":161452,"9":123891,"10":250760,"11":165265,"12":168133,"13":201800,"14":195373,"15":164387,"16":200120,"18":196800,"20":174943,"23":148120,"24":155960,"25":182888,"26":162973,"27":183956,"28":139560,"29":198938,"31":184066,"33":209260,"34":244360,"35":193464,"37":199149,"40":230453,"42":212253,"43":272373,"45":196600,"47":176440,"49":242485,"50":163855,"51":265000,"53":200690,"54":260253,"55":175238,"57":162638,"58":156943,"60":239318,"62":216148,"64":221520,"67":167303,"68":218289,"70":232857,"72":131013,"74":153947,"75":199440,"77":200455},"energy":{"0":0.712,"2":0.69,"3":0.52,"5":0.73,"6":0.79,"9":0.545,"10":0.678,"11":0.75,"12":0.831,"13":0.551,"14":0.607,"15":0.477,"16":0.807,"18":0.234,"20":0.73,"23":0.802,"24":0.573,"25":0.322,"26":0.803,"27":0.417,"28":0.516,"29":0.782,"31":0.826,"33":0.593,"34":0.538,"35":0.768,"37":0.666,"40":0.587,"42":0.771,"43":0.742,"45":0.589,"47":0.55,"49":0.469,"50":0.675,"51":0.468,"53":0.643,"54":0.525,"55":0.965,"57":0.679,"58":0.463,"60":0.806,"62":0.729,"64":0.62,"67":0.731,"68":0.632,"70":0.5,"72":0.809,"74":0.735,"75":0.63,"77":0.681},"instrumentalness":{"0":0.0000268,"2":0.00000118,"3":0.00000186,"5":0.0000954,"6":0.00000333,"9":0.00474,"10":0.0,"11":0.0,"12":0.0000643,"13":0.0,"14":0.000307,"15":0.0,"16":0.0,"18":0.67,"20":0.000107,"23":0.0000355,"24":0.0,"25":0.00194,"26":0.000333,"27":0.022,"28":0.00000754,"29":0.033,"31":0.0000709,"33":0.162,"34":0.0000295,"35":0.00192,"37":0.0,"40":0.00000635,"42":0.00000307,"43":0.0000467,"45":0.000237,"47":0.0,"49":0.0000921,"50":0.0,"51":0.00000427,"53":0.0000018,"54":0.0,"55":0.00000707,"57":0.00000198,"58":0.00000296,"60":0.000669,"62":0.000272,"64":0.0,"67":0.00101,"68":0.0,"70":0.0,"72":0.000128,"74":0.144,"75":0.0,"77":0.00000515},"key":{"0":1,"2":9,"3":11,"5":1,"6":6,"9":11,"10":0,"11":5,"12":8,"13":5,"14":11,"15":0,"16":1,"18":9,"20":11,"23":0,"24":5,"25":9,"26":9,"27":0,"28":6,"29":2,"31":7,"33":4,"34":4,"35":0,"37":11,"40":7,"42":9,"43":2,"45":1,"47":10,"49":4,"50":6,"51":2,"53":4,"54":1,"55":7,"57":7,"58":2,"60":11,"62":6,"64":1,"67":6,"68":2,"70":1,"72":5,"74":8,"75":4,"77":0},"liveness":{"0":0.0933,"2":0.105,"3":0.355,"5":0.0897,"6":0.184,"9":0.0642,"10":0.156,"11":0.074,"12":0.35,"13":0.11,"14":0.191,"15":0.146,"16":0.104,"18":0.13,"20":0.274,"23":0.0614,"24":0.305,"25":0.215,"26":0.189,"27":0.0974,"28":0.0504,"29":0.23,"31":0.123,"33":0.25,"34":0.09,"35":0.378,"37":0.0922,"40":0.137,"42":0.108,"43":0.0934,"45":0.0992,"47":0.202,"49":0.128,"50":0.142,"51":0.0986,"53":0.142,"54":0.134,"55":0.371,"57":0.218,"58":0.301,"60":0.114,"62":0.1,"64":0.0822,"67":0.311,"68":0.0915,"70":0.335,"72":0.248,"74":0.161,"75":0.0936,"77":0.0322},"loudness":{"0":-5.105,"2":-5.529,"3":-9.342,"5":-5.934,"6":-1.602,"9":-7.924,"10":-3.798,"11":-3.67,"12":-4.042,"13":-7.231,"14":-8.127,"15":-6.786,"16":-3.447,"18":-14.52,"20":-6.657,"23":-6.412,"24":-5.501,"25":-11.762,"26":-5.171,"27":-9.345,"28":-5.817,"29":-5.548,"31":-6.34,"33":-4.801,"34":-8.55,"35":-6.468,"37":-5.319,"40":-7.015,"42":-4.067,"43":-5.355,"45":-6.713,"47":-5.339,"49":-8.209,"50":-5.456,"51":-8.196,"53":-6.571,"54":-7.163,"55":-3.673,"57":-5.329,"58":-7.399,"60":-5.206,"62":-3.549,"64":-6.005,"67":-5.338,"68":-5.6,"70":-7.594,"72":-8.254,"74":-5.747,"75":-3.547,"77":-4.325},"speechiness":{"0":0.0817,"2":0.0427,"3":0.244,"5":0.0598,"6":0.108,"9":0.0336,"10":0.266,"11":0.0455,"12":0.0584,"13":0.132,"14":0.1,"15":0.392,"16":0.326,"18":0.178,"20":0.0972,"23":0.0456,"24":0.0678,"25":0.0292,"26":0.0367,"27":0.0256,"28":0.16,"29":0.044,"31":0.0538,"33":0.0322,"34":0.0451,"35":0.056,"37":0.0759,"40":0.276,"42":0.0433,"43":0.114,"45":0.289,"47":0.0286,"49":0.0254,"50":0.0389,"51":0.364,"53":0.0519,"54":0.0615,"55":0.0343,"57":0.0364,"58":0.0797,"60":0.0381,"62":0.0691,"64":0.0484,"67":0.0557,"68":0.0493,"70":0.0707,"72":0.05,"74":0.0391,"75":0.277,"77":0.0668},"tempo":{"0":92.005,"2":116.992,"3":153.15,"5":171.005,"6":92.927,"9":150.187,"10":84.039,"11":114.061,"12":95.975,"13":143.008,"14":81.001,"15":79.921,"16":178.003,"18":140.02,"20":136.175,"23":139.951,"24":94.999,"25":148.005,"26":127.989,"27":67.528,"28":105.001,"29":128.033,"31":138.078,"33":94.467,"34":122.758,"35":94.982,"37":93.95,"40":186.003,"42":126.956,"43":96.107,"45":98.002,"47":101.19,"49":132.023,"50":203.759,"51":96.006,"53":97.008,"54":133.629,"55":128.04,"57":124.98,"58":131.199,"60":106.999,"62":167.968,"64":97.95,"67":173.93,"68":122.104,"70":67.033,"72":132.962,"74":88.98,"75":179.974,"77":117.999},"valence":{"0":0.425,"2":0.31,"3":0.424,"5":0.334,"6":0.962,"9":0.0385,"10":0.254,"11":0.587,"12":0.609,"13":0.392,"14":0.498,"15":0.57,"16":0.575,"18":0.197,"20":0.786,"23":0.822,"24":0.563,"25":0.261,"26":0.461,"27":0.479,"28":0.624,"29":0.55,"31":0.893,"33":0.153,"34":0.139,"35":0.297,"37":0.529,"40":0.486,"42":0.739,"43":0.25,"45":0.399,"47":0.342,"49":0.288,"50":0.478,"51":0.47,"53":0.533,"54":0.508,"55":0.304,"57":0.85,"58":0.206,"60":0.802,"62":0.58,"64":0.172,"67":0.662,"68":0.498,"70":0.506,"72":0.857,"74":0.418,"75":0.607,"77":0.646},"mode":{"0":0,"2":0,"3":0,"5":1,"6":0,"9":1,"10":1,"11":0,"12":0,"13":1,"14":0,"15":1,"16":0,"18":1,"20":0,"23":1,"24":1,"25":1,"26":1,"27":0,"28":1,"29":1,"31":0,"33":1,"34":0,"35":1,"37":1,"40":1,"42":0,"43":1,"45":0,"47":1,"49":1,"50":1,"51":1,"53":1,"54":0,"55":0,"57":0,"58":1,"60":1,"62":0,"64":0,"67":0,"68":0,"70":0,"72":1,"74":1,"75":0,"77":1}}
+[2023-03-18T04:10:46.018+0000] {logging_mixin.py:137} INFO - ['song_name', 'track_id', 'is_explicit', 'acousticness', 'danceability', 'duration_ms', 'energy', 'instrumentalness', 'key', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'mode']
+[2023-03-18T04:10:46.019+0000] {logging_mixin.py:137} INFO - song_dim
+[2023-03-18T04:10:46.047+0000] {logging_mixin.py:137} INFO -                                             song_name  ... mode
+0                                     Me Porto Bonito  ...    0
+2                                 Under The Influence  ...    0
+3                                           Rich Flex  ...    0
+5                                     Blinding Lights  ...    1
+6                                              MERCHO  ...    0
+9                                     Just Wanna Rock  ...    1
+10                                        Mockingbird  ...    1
+11                                              Bones  ...    0
+12                             CHORRITO PA LAS ANIMAS  ...    0
+13                                             Snooze  ...    1
+14                                         Sure Thing  ...    0
+15                          MIENTRAS ME CURO DEL CORA  ...    1
+16                                      X SI VOLVEMOS  ...    0
+18                                           La Jumpa  ...    1
+20                                                AMG  ...    0
+23                                    I Ain't Worried  ...    1
+24                            Feliz Cumpleaños Ferxxo  ...    1
+25                                           ceilings  ...    1
+26                                              River  ...    1
+27                                   I Wanna Be Yours  ...    0
+28                                            Players  ...    1
+29              Quevedo: Bzrp Music Sessions, Vol. 52  ...    1
+31                                                PRC  ...    0
+33                                        golden hour  ...    1
+34                                       Another Love  ...    0
+35                         Tormenta (feat. Bad Bunny)  ...    1
+37                                  Mas Rica Que Ayer  ...    1
+40                                            Starboy  ...    1
+42                                                OMG  ...    0
+43                                          Escapism.  ...    1
+45                                            Hey Mor  ...    0
+47  Until I Found You (with Em Beihold) - Em Beiho...  ...    1
+49                                       Here With Me  ...    1
+50                                         Last Night  ...    1
+51                                       Shorty Party  ...    1
+53                                          Anti-Hero  ...    1
+54                                        Die For You  ...    0
+55                                    I'm Good (Blue)  ...    0
+57                                         La Bachata  ...    0
+58                          Unholy (feat. Kim Petras)  ...    1
+60                      Calm Down (with Selena Gomez)  ...    1
+62                                         Yandel 150  ...    0
+64             Creepin' (with The Weeknd & 21 Savage)  ...    0
+67                                          As It Was  ...    0
+68              Shakira: Bzrp Music Sessions, Vol. 53  ...    0
+70           Die For You (with Ariana Grande) - Remix  ...    0
+72                                 Boy's a liar Pt. 2  ...    1
+74                                          Kill Bill  ...    1
+75                                                TQG  ...    0
+77                                            Flowers  ...    1
+
+[50 rows x 15 columns]
+[2023-03-18T04:10:46.049+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/transform.py", line 73, in validate_data
+    if len(data_table.drop_duplicates(inplace=True)) != len(data_table):
+TypeError: object of type 'NoneType' has no len()
+[2023-03-18T04:10:46.057+0000] {taskinstance.py:1323} INFO - Marking task as UP_FOR_RETRY. dag_id=Spotify_Data_ETL, task_id=ValidateAndLoadSongDim.ValidateSongDim, execution_date=20230318T035925, start_date=20230318T041045, end_date=20230318T041046
+[2023-03-18T04:10:46.064+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 1418 for task ValidateAndLoadSongDim.ValidateSongDim (object of type 'NoneType' has no len(); 1233)
+[2023-03-18T04:10:46.088+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-03-18T04:10:46.104+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

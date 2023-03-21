@@ -27,34 +27,54 @@ def transform_data(ti):
     song_fact=songs_df[['track_id','popularity']]
     today = datetime.today().strftime('%Y-%m-%d')
     song_fact['date']=today
+    song_fact.drop_duplicates(inplace=True)
 
 
     #Create the song dimension table
     song_dim=pd.merge(songs_df,audio_df,left_on='track_id',right_on='id', how='inner')
     song_dim=song_dim.drop(['popularity','id','artist_name','artist_id'], axis=1)
+    song_dim.drop_duplicates(inplace=True)
+
+    
 
     #Create a song artist bridge table
-    song_arist_bridge=songs_df[['track_id','artist_id']]
-    song_arist_bridge.drop_duplicates(inplace=True)
+    song_artist_bridge=songs_df[['track_id','artist_id']]
+    song_artist_bridge.drop_duplicates(inplace=True)
 
     #Create the artist fact table 
     artist_fact=pd.merge(songs_df,artists_df, left_on='artist_id', right_on='artist_id', suffixes=('_left', '_right'))
     artist_fact=artist_fact[['artist_id','artist_name','followers','popularity_right']]
     artist_fact = artist_fact.rename(columns={'popularity_right': 'popularity'})
+    artist_fact['date']=today
     artist_fact.drop_duplicates(inplace=True)
 
     #Create the artist genre bridge table 
-    artist_genre_bridge=artists_df[['artist_id','genre']]
-    artist_genre_bridge.drop_duplicates(inplace=True)
+    artist_genre_fact=artists_df[['artist_id','genre']]
+    artist_genre_fact.drop_duplicates(inplace=True)
 
-    #Create the Artist Genre Dimensions Table 
-    genre=artists_df[['genre']]
-    genre.drop_duplicates(inplace=True)
 
     #Push the dataframes into XCOM
     ti.xcom_push(key='song_fact', value=song_fact.to_json())
     ti.xcom_push(key='song_dim', value=song_dim.to_json())
-    ti.xcom_push(key='song_arist_bridge', value=song_arist_bridge.to_json())
+    ti.xcom_push(key='song_artist_bridge', value=song_artist_bridge.to_json())
     ti.xcom_push(key='artist_fact', value=artist_fact.to_json())
-    ti.xcom_push(key='artist_genre_bridge', value=artist_genre_bridge.to_json())
-    ti.xcom_push(key='genre', value=genre.to_json())
+    ti.xcom_push(key='artist_genre_fact', value=artist_genre_fact.to_json())
+
+#Implement  data validation methods to that we can vlaidate the data
+def validate_data(data,columns,table):
+
+    print(data)
+    print(columns)
+    print(table)
+    data_table=pd.read_json(data)
+    print(data_table)
+
+    #Check if all rows have unique values 
+    if len(data_table.drop_duplicates()) != len(data_table):
+        raise ValueError("{} Contains Duplicate Values".format(table))
+    #Check if all the colmuns match
+    if list(data_table.columns) != columns:
+        raise ValueError("{} doesn't contain the correct rows".format(table)) 
+    #Check to be sure we have no nulls
+    if data_table.isna().sum().sum() > 0:
+        raise ValueError("{} Contains Null Values".format(table))

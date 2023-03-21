@@ -1,0 +1,13 @@
+[2023-03-16T04:39:22.917+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateGenre.ValidateGenre manual__2023-03-16T04:25:58.412323+00:00 [queued]>
+[2023-03-16T04:39:22.929+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateGenre.ValidateGenre manual__2023-03-16T04:25:58.412323+00:00 [queued]>
+[2023-03-16T04:39:22.930+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-16T04:39:22.930+0000] {taskinstance.py:1280} INFO - Starting attempt 14 of 14
+[2023-03-16T04:39:22.930+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-16T04:39:22.942+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): ValidateGenre.ValidateGenre> on 2023-03-16 04:25:58.412323+00:00
+[2023-03-16T04:39:22.954+0000] {standard_task_runner.py:55} INFO - Started process 6533 to run task
+[2023-03-16T04:39:22.967+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateGenre.ValidateGenre', 'manual__2023-03-16T04:25:58.412323+00:00', '--job-id', '1068', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmp4b96k30h']
+[2023-03-16T04:39:22.969+0000] {standard_task_runner.py:83} INFO - Job 1068: Subtask ValidateGenre.ValidateGenre
+[2023-03-16T04:39:23.413+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-03-16T04:39:23.431+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

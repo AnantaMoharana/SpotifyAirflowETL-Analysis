@@ -1,2 +1,0 @@
-[2023-03-12T22:25:27.870+0000] {taskinstance.py:1077} INFO - Dependencies not met for <TaskInstance: Spotify_Data_ETL.GetAudioQuality manual__2023-03-12T22:04:14.795695+00:00 [queued]>, dependency 'Trigger Rule' FAILED: Task's trigger rule 'all_success' requires all upstream tasks to have succeeded, but found 1 non-success(es). upstream_states=_UpstreamTIStates(success=0, skipped=0, failed=0, upstream_failed=0, removed=0, done=0), upstream_task_ids={'GetArtistInfo'}
-[2023-03-12T22:25:27.871+0000] {local_task_job.py:147} INFO - Task is not able to be run

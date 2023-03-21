@@ -1,0 +1,35 @@
+[2023-03-16T04:46:34.920+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateGenre.ValidateGenre manual__2023-03-16T04:25:58.412323+00:00 [queued]>
+[2023-03-16T04:46:34.931+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: Spotify_Data_ETL.ValidateGenre.ValidateGenre manual__2023-03-16T04:25:58.412323+00:00 [queued]>
+[2023-03-16T04:46:34.931+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-16T04:46:34.932+0000] {taskinstance.py:1280} INFO - Starting attempt 16 of 18
+[2023-03-16T04:46:34.932+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-16T04:46:34.946+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): ValidateGenre.ValidateGenre> on 2023-03-16 04:25:58.412323+00:00
+[2023-03-16T04:46:34.953+0000] {standard_task_runner.py:55} INFO - Started process 7161 to run task
+[2023-03-16T04:46:34.969+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateGenre.ValidateGenre', 'manual__2023-03-16T04:25:58.412323+00:00', '--job-id', '1107', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmpyt5vr4oh']
+[2023-03-16T04:46:34.973+0000] {standard_task_runner.py:83} INFO - Job 1107: Subtask ValidateGenre.ValidateGenre
+[2023-03-16T04:46:35.058+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.ValidateGenre.ValidateGenre manual__2023-03-16T04:25:58.412323+00:00 [running]> on host 18c42e4ef76b
+[2023-03-16T04:46:35.542+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=ValidateGenre.ValidateGenre
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-16T04:25:58.412323+00:00
+AIRFLOW_CTX_TRY_NUMBER=16
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-16T04:25:58.412323+00:00
+[2023-03-16T04:46:35.545+0000] {logging_mixin.py:137} INFO - {"genre":{"0":"new jersey rap","1":"latin pop","2":"dance pop","3":"colombian pop","4":"rap","5":"urbano latino","6":"trap latino","7":"reggaeton","8":"puerto rican pop","11":"latin hip hop","13":"reggaeton colombiano","15":"gen z singer-songwriter","16":"alt z","17":"r&b","18":"pop","19":"rap canario","20":"nigerian pop","22":"canadian pop","23":"canadian contemporary r&b","25":"indie pop","26":"boston folk","28":"piano rock","31":"pop reggaeton","33":"post-teen pop","36":"uk contemporary r&b","48":"modern indie pop","51":"trap argentino","52":"pop venezolano","53":"argentine hip hop","56":"edm","58":"uk pop","60":"nueva musica mexicana","61":"corrido","63":"atl hip hop","64":"contemporary country","65":"rock","66":"modern rock","67":"mexican hip hop","69":"k-pop girl group","70":"k-pop","71":"sad sierreno","72":"toronto rap","74":"hip hop","76":"canadian hip hop","79":"viral rap","80":"trap queen","82":"new jersey underground rap","83":"pop dance","87":"big room","88":"sheffield indie","90":"permanent wave","92":"garage rock","93":"bedroom pop","94":"bachata","95":"trap triste","97":"filter house","98":"electro","99":"cumbia pop","102":"detroit hip hop","106":"alternative hip hop","108":"trap","110":"philly rap","111":"melodic rap","113":"sierreno","116":"musica mexicana","117":"corridos tumbados","122":"transpop","125":"electropop","130":"chill pop"}}
+[2023-03-16T04:46:35.546+0000] {logging_mixin.py:137} INFO - ['genre']
+[2023-03-16T04:46:35.546+0000] {logging_mixin.py:137} INFO - genre
+[2023-03-16T04:46:35.556+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/src/transform.py", line 72, in validate_data
+    if data_table.duplicated.any():
+AttributeError: 'function' object has no attribute 'any'
+[2023-03-16T04:46:35.573+0000] {taskinstance.py:1323} INFO - Marking task as UP_FOR_RETRY. dag_id=Spotify_Data_ETL, task_id=ValidateGenre.ValidateGenre, execution_date=20230316T042558, start_date=20230316T044634, end_date=20230316T044635
+[2023-03-16T04:46:35.585+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 1107 for task ValidateGenre.ValidateGenre ('function' object has no attribute 'any'; 7161)
+[2023-03-16T04:46:35.659+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-03-16T04:46:35.689+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check
