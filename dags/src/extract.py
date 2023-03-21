@@ -54,16 +54,16 @@ def get_songs_from_playlist(ti):
     r
 
     #Create a dataframe to hold all the information
-    songs_df = pd.DataFrame(columns=['song_name', 'track_id', 'is_explicit', 'popularity', 'artist_name','artist_id'])
+    songs_df = pd.DataFrame(columns=['song_name', 'song_id', 'explicit', 'popularity', 'artist_name','artist_id'])
 
     #Loop through the song items in the json
     for item in r['items']:
         #Get the song name
         song_name=item['track']['name']
         #Get the song id
-        track_id=item['track']['id']
+        song_id=item['track']['id']
         #Get whether or not the song is explicit
-        is_explicit=item['track']['explicit']
+        explicit=item['track']['explicit']
         #Get the songs popularity
         poplarity=item['track']['popularity']
 
@@ -73,7 +73,7 @@ def get_songs_from_playlist(ti):
             #Get the artist id
             artist_id=artist['id']
             #Create a new dataframe row and then append it
-            new_row = pd.DataFrame({'song_name':song_name,'track_id':track_id,'is_explicit':is_explicit, 'popularity':poplarity, 'artist_name':artist_name,"artist_id":artist_id}, index=[0])
+            new_row = pd.DataFrame({'song_name':song_name,'song_id':song_id,'explicit':explicit, 'popularity':poplarity, 'artist_name':artist_name,"artist_id":artist_id}, index=[0])
             songs_df = pd.concat([new_row,songs_df.loc[:]]).reset_index(drop=True)
 
     ti.xcom_push(key='songs_df', value=songs_df.to_json())
@@ -124,7 +124,7 @@ def get_song_audio_quality(ti):
     songs_df=pd.read_json(songs_df)
 
     #Get a list fo all the unique ids and remove the duplicates
-    song_ids=songs_df['track_id'].tolist()
+    song_ids=songs_df['song_id'].tolist()
     song_ids=list(set(song_ids))
 
     #Get an access token to make the API calls
@@ -137,7 +137,7 @@ def get_song_audio_quality(ti):
     BASE_URL = 'https://api.spotify.com/v1/'
 
     #Create a dataframe ot hold all the information about the song audio
-    audio_df = pd.DataFrame(columns=['id','acousticness','danceability','duration_ms', 'energy', 'instrumentalness','key', 'liveness', 'loudness', 'speechiness','tempo', 'valence','mode']) 
+    audio_df = pd.DataFrame(columns=['song_id','acousticness','danceability','duration_ms', 'energy', 'instrumentalness','key', 'liveness', 'loudness', 'speechiness','tempo', 'valence','mode']) 
     for id in song_ids:
         #Get the release date of the song
         r=requests.get(BASE_URL + 'audio-features/' + id, headers=headers)
@@ -167,7 +167,7 @@ def get_song_audio_quality(ti):
         #Get mode
         mode=r['mode']
         #Create a new row
-        new_row = pd.DataFrame({'id':id,'acousticness':acousticness,'danceability':danceability,'duration_ms':duration_ms, 'energy':energy, 'instrumentalness':instrumentalness,'key':key, 'liveness':liveness, 'loudness':loudness, 'speechiness':speechiness,'tempo':tempo, 'valence':valence,'mode':mode }, index=[0])
+        new_row = pd.DataFrame({'song_id':id,'acousticness':acousticness,'danceability':danceability,'duration_ms':duration_ms, 'energy':energy, 'instrumentalness':instrumentalness,'key':key, 'liveness':liveness, 'loudness':loudness, 'speechiness':speechiness,'tempo':tempo, 'valence':valence,'mode':mode }, index=[0])
         audio_df = pd.concat([new_row,audio_df.loc[:]]).reset_index(drop=True)
 
     ti.xcom_push(key='audio_df',value=audio_df.to_json())

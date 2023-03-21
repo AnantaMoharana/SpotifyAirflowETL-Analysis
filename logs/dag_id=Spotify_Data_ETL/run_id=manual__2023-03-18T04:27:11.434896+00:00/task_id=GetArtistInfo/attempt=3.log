@@ -1,0 +1,23 @@
+[2023-03-20T17:08:42.940+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Spotify_Data_ETL.GetArtistInfo manual__2023-03-18T04:27:11.434896+00:00 [queued]>
+[2023-03-20T17:08:42.946+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Spotify_Data_ETL.GetArtistInfo manual__2023-03-18T04:27:11.434896+00:00 [queued]>
+[2023-03-20T17:08:42.947+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20T17:08:42.947+0000] {taskinstance.py:1283} INFO - Starting attempt 3 of 5
+[2023-03-20T17:08:42.948+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20T17:08:42.956+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): GetArtistInfo> on 2023-03-18 04:27:11.434896+00:00
+[2023-03-20T17:08:42.962+0000] {standard_task_runner.py:55} INFO - Started process 649 to run task
+[2023-03-20T17:08:42.966+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'GetArtistInfo', 'manual__2023-03-18T04:27:11.434896+00:00', '--job-id', '1588', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmp5uw347cj']
+[2023-03-20T17:08:42.967+0000] {standard_task_runner.py:83} INFO - Job 1588: Subtask GetArtistInfo
+[2023-03-20T17:08:43.030+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.GetArtistInfo manual__2023-03-18T04:27:11.434896+00:00 [running]> on host 1fd7b08731f2
+[2023-03-20T17:08:43.079+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=GetArtistInfo
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-18T04:27:11.434896+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-18T04:27:11.434896+00:00
+[2023-03-20T17:08:51.604+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-20T17:08:51.615+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=GetArtistInfo, execution_date=20230318T042711, start_date=20230320T170842, end_date=20230320T170851
+[2023-03-20T17:08:51.670+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-20T17:08:51.691+0000] {taskinstance.py:2585} INFO - 1 downstream tasks scheduled from follow-on schedule check

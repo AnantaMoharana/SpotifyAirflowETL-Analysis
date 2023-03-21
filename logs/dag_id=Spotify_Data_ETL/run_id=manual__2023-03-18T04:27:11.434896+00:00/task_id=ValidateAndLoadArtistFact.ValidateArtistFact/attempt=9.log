@@ -1,0 +1,84 @@
+[2023-03-21T03:00:00.670+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistFact.ValidateArtistFact manual__2023-03-18T04:27:11.434896+00:00 [queued]>
+[2023-03-21T03:00:00.677+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistFact.ValidateArtistFact manual__2023-03-18T04:27:11.434896+00:00 [queued]>
+[2023-03-21T03:00:00.677+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T03:00:00.678+0000] {taskinstance.py:1283} INFO - Starting attempt 9 of 11
+[2023-03-21T03:00:00.683+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T03:00:00.691+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): ValidateAndLoadArtistFact.ValidateArtistFact> on 2023-03-18 04:27:11.434896+00:00
+[2023-03-21T03:00:00.698+0000] {standard_task_runner.py:55} INFO - Started process 19756 to run task
+[2023-03-21T03:00:00.703+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateAndLoadArtistFact.ValidateArtistFact', 'manual__2023-03-18T04:27:11.434896+00:00', '--job-id', '1700', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmp0dz45x16']
+[2023-03-21T03:00:00.704+0000] {standard_task_runner.py:83} INFO - Job 1700: Subtask ValidateAndLoadArtistFact.ValidateArtistFact
+[2023-03-21T03:00:00.802+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistFact.ValidateArtistFact manual__2023-03-18T04:27:11.434896+00:00 [running]> on host 1fd7b08731f2
+[2023-03-21T03:00:00.960+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=ValidateAndLoadArtistFact.ValidateArtistFact
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-18T04:27:11.434896+00:00
+AIRFLOW_CTX_TRY_NUMBER=9
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-18T04:27:11.434896+00:00
+[2023-03-21T03:00:00.961+0000] {logging_mixin.py:137} INFO - {"artist_id":{"0":"6XkjpgcEsYab502Vr1bBeW","2":"0ys2OFYzWYB5hRDLCsBqxt","7":"2LRoIwlKmHjgvigdNGBHNo","23":"5y8tKLUfMvliMe8IKamR32","25":"4q3ewBCX7sLwd24euuV69X","37":"3AA28KZvwAUcZuOKwyblJQ","38":"37230BxxYs9ksS7OkZw3IU","39":"4O15NlyKLIASxsJ0PrXPfz","43":"48R2gYdPKtfnfKAzhSVPUx","44":"0niAkxgT6y57bRbT0Ge94z","46":"53XhwfbYqKCa1cC15pYq2q","48":"360IAlyVv4PCEVjgyMZrxK","51":"7Gi6gjaWy3DxyilpF1a8Is","56":"3l9G1G9MxH6DaRhwLklaf5","58":"4SsVbpTthjScTS7U2hmr1X","61":"7tYKF4w9nC0nq9CsPZTHyP","65":"5XJDexmWFLWOkjOEjOVX3e","69":"5Pwc4xIPtQLFEnJriah9YJ","71":"1GmsPCcpKgF9OhlNXjOsbS","74":"52iwsT98xCoGgiGntTiR7K","75":"716NhGYqD1jl2wI1Qkgq36","85":"6AMd49uBDJfhf30Ak2QR5s","89":"2txHhyCwHjUEpJjWrEyqyX","91":"164Uj4eKjl6zTBKfJLFKKK","92":"4tZwfgrHOc3mvqYlEYSvVi","94":"1Xyo4u8uXC1ZmMpatF05PJ","106":"7Ln80lUS6He07XvHI8qqHH","111":"12Zk1DFhCbHY6v3xep2ZjI","112":"5KKpBU5eC2tJDzf0wmlRp2","115":"4oUHIQIBe0LHzYfvXNW4QM","116":"1i8SpTcr7yvPOmcqrbnVXY","120":"6HvZYsbFfjnjFrWF950C9d","122":"0tmwSHipWxN12fsoLcFU3B","127":"6Sbl0NT50roqWvy746MfVf","129":"12GqGscKJx3aE4t07u7eVZ","132":"0elWFr7TW8piilVRYJUe4P","144":"7o2ZQYM7nTsaVdkXY38UAA","146":"5XKFrudbV4IiuE5WuTPRmT","148":"64M6ah0SkkRsnPGtGiRAbb","152":"1Cs0zKBU1kc0i8ypK3B9ai","157":"07PdYoE4jVRF6Ut40GgVSP","159":"06HL4z0CvFAxyc27GXpf02","161":"3Xt3RrJMFv5SZkCfUE8C1J","166":"2wY79sveU1sp5g7SokKOiI","168":"0C8ZW7ezQVs4URX5aX7Kqx","171":"46pWGuE3dSwY3bMMXGBvVS","172":"0eHQ9o50hj6ZDNBt6Ys1sD","175":"0XeEobZplHxzM9QzFQWLiR","180":"1URnnhqYAYcrqrcwql10ft","182":"0iEtIxbK0KxaSlF7G42ZOp","183":"6KImCVD70vtIoJWnq6nGn3","184":"0EmeFodog0BfCgMzAIvKQp","190":"66CXWjxzNUsdJxJ2JdwvnR","192":"790FomKkXshlbRYZFtlgla","195":"5YGY8feqx7naU7z4HrwZM6"},"artist_name":{"0":"Grupo Frontera","2":"Fuerza Regida","7":"Feid","23":"d4vd","25":"Bad Bunny","37":"Gorillaz","38":"Chencho Corleone","39":"Lil Uzi Vert","43":"Migrantes","44":"LiL CaKe","46":"Imagine Dragons","48":"Miguel","51":"Junior H","56":"Oscar Maydon","58":"Arc\u00e1ngel","61":"SZA","65":"Eladio Carrion","69":"OneRepublic","71":"Lizzy McAlpine","74":"Quevedo","75":"Bizarrap","85":"Coi Leray","89":"Tom Odell","91":"JVKE","92":"Daft Punk","94":"The Weeknd","106":"Arctic Monkeys","111":"070 Shake","112":"RAYE","115":"Morgan Wallen","116":"Ozuna","120":"NewJeans","122":"Manuel Turizo","127":"Gabito Ballesteros","129":"Peso Pluma","132":"Natanael Cano","144":"Em Beihold","146":"Stephen Sanchez","148":"Bebe Rexha","152":"David Guetta","157":"Cartel De Santa","159":"Taylor Swift","161":"Kim Petras","166":"Sam Smith","168":"Selena Gomez","171":"Rema","172":"Yandel","175":"Eslabon Armado","180":"21 Savage","182":"Metro Boomin","183":"Harry Styles","184":"Shakira","190":"Ariana Grande","192":"KAROL G","195":"Miley Cyrus"},"followers":{"0":519422,"2":2659646,"7":4168639,"23":838636,"25":66268587,"37":10192637,"38":449022,"39":14760177,"43":267538,"44":96994,"46":46413710,"48":4535319,"51":6322090,"56":268504,"58":10203734,"61":11390671,"65":3113077,"69":15240061,"71":497151,"74":1427955,"75":9744371,"85":509156,"89":2965524,"91":1883961,"92":9266611,"94":60988941,"106":18985125,"111":440894,"112":793924,"115":5265532,"116":36007378,"120":2696384,"122":11730682,"127":79591,"129":1167476,"132":5971918,"144":308494,"146":523276,"148":8055922,"152":25696645,"157":13654964,"159":70018400,"161":872235,"166":22094441,"168":40911415,"171":2014116,"172":6719827,"175":3606708,"180":13098371,"182":3894106,"183":26606039,"184":27818696,"190":88759266,"192":33329116,"195":20076960},"popularity":{"0":86,"2":88,"7":95,"23":84,"25":99,"37":86,"38":83,"39":90,"43":76,"44":75,"46":91,"48":84,"51":90,"56":79,"58":87,"61":95,"65":87,"69":86,"71":79,"74":90,"75":89,"85":79,"89":80,"91":82,"92":84,"94":99,"106":89,"111":82,"112":83,"115":94,"116":90,"120":86,"122":86,"127":81,"129":89,"132":88,"144":79,"146":82,"148":85,"152":91,"157":83,"159":100,"161":83,"166":90,"168":88,"171":84,"172":84,"175":81,"180":94,"182":92,"183":92,"184":94,"190":93,"192":95,"195":93},"date":{"0":"2023-03-21","2":"2023-03-21","7":"2023-03-21","23":"2023-03-21","25":"2023-03-21","37":"2023-03-21","38":"2023-03-21","39":"2023-03-21","43":"2023-03-21","44":"2023-03-21","46":"2023-03-21","48":"2023-03-21","51":"2023-03-21","56":"2023-03-21","58":"2023-03-21","61":"2023-03-21","65":"2023-03-21","69":"2023-03-21","71":"2023-03-21","74":"2023-03-21","75":"2023-03-21","85":"2023-03-21","89":"2023-03-21","91":"2023-03-21","92":"2023-03-21","94":"2023-03-21","106":"2023-03-21","111":"2023-03-21","112":"2023-03-21","115":"2023-03-21","116":"2023-03-21","120":"2023-03-21","122":"2023-03-21","127":"2023-03-21","129":"2023-03-21","132":"2023-03-21","144":"2023-03-21","146":"2023-03-21","148":"2023-03-21","152":"2023-03-21","157":"2023-03-21","159":"2023-03-21","161":"2023-03-21","166":"2023-03-21","168":"2023-03-21","171":"2023-03-21","172":"2023-03-21","175":"2023-03-21","180":"2023-03-21","182":"2023-03-21","183":"2023-03-21","184":"2023-03-21","190":"2023-03-21","192":"2023-03-21","195":"2023-03-21"}}
+[2023-03-21T03:00:00.962+0000] {logging_mixin.py:137} INFO - ['artist_id', 'artist_name', 'followers', 'popularity', 'date']
+[2023-03-21T03:00:00.963+0000] {logging_mixin.py:137} INFO - artist_fact
+[2023-03-21T03:00:01.044+0000] {logging_mixin.py:137} INFO -                   artist_id         artist_name  ...  popularity       date
+0    6XkjpgcEsYab502Vr1bBeW      Grupo Frontera  ...          86 2023-03-21
+2    0ys2OFYzWYB5hRDLCsBqxt       Fuerza Regida  ...          88 2023-03-21
+7    2LRoIwlKmHjgvigdNGBHNo                Feid  ...          95 2023-03-21
+23   5y8tKLUfMvliMe8IKamR32                d4vd  ...          84 2023-03-21
+25   4q3ewBCX7sLwd24euuV69X           Bad Bunny  ...          99 2023-03-21
+37   3AA28KZvwAUcZuOKwyblJQ            Gorillaz  ...          86 2023-03-21
+38   37230BxxYs9ksS7OkZw3IU    Chencho Corleone  ...          83 2023-03-21
+39   4O15NlyKLIASxsJ0PrXPfz        Lil Uzi Vert  ...          90 2023-03-21
+43   48R2gYdPKtfnfKAzhSVPUx           Migrantes  ...          76 2023-03-21
+44   0niAkxgT6y57bRbT0Ge94z            LiL CaKe  ...          75 2023-03-21
+46   53XhwfbYqKCa1cC15pYq2q     Imagine Dragons  ...          91 2023-03-21
+48   360IAlyVv4PCEVjgyMZrxK              Miguel  ...          84 2023-03-21
+51   7Gi6gjaWy3DxyilpF1a8Is            Junior H  ...          90 2023-03-21
+56   3l9G1G9MxH6DaRhwLklaf5        Oscar Maydon  ...          79 2023-03-21
+58   4SsVbpTthjScTS7U2hmr1X            Arcángel  ...          87 2023-03-21
+61   7tYKF4w9nC0nq9CsPZTHyP                 SZA  ...          95 2023-03-21
+65   5XJDexmWFLWOkjOEjOVX3e      Eladio Carrion  ...          87 2023-03-21
+69   5Pwc4xIPtQLFEnJriah9YJ         OneRepublic  ...          86 2023-03-21
+71   1GmsPCcpKgF9OhlNXjOsbS      Lizzy McAlpine  ...          79 2023-03-21
+74   52iwsT98xCoGgiGntTiR7K             Quevedo  ...          90 2023-03-21
+75   716NhGYqD1jl2wI1Qkgq36            Bizarrap  ...          89 2023-03-21
+85   6AMd49uBDJfhf30Ak2QR5s           Coi Leray  ...          79 2023-03-21
+89   2txHhyCwHjUEpJjWrEyqyX           Tom Odell  ...          80 2023-03-21
+91   164Uj4eKjl6zTBKfJLFKKK                JVKE  ...          82 2023-03-21
+92   4tZwfgrHOc3mvqYlEYSvVi           Daft Punk  ...          84 2023-03-21
+94   1Xyo4u8uXC1ZmMpatF05PJ          The Weeknd  ...          99 2023-03-21
+106  7Ln80lUS6He07XvHI8qqHH      Arctic Monkeys  ...          89 2023-03-21
+111  12Zk1DFhCbHY6v3xep2ZjI           070 Shake  ...          82 2023-03-21
+112  5KKpBU5eC2tJDzf0wmlRp2                RAYE  ...          83 2023-03-21
+115  4oUHIQIBe0LHzYfvXNW4QM       Morgan Wallen  ...          94 2023-03-21
+116  1i8SpTcr7yvPOmcqrbnVXY               Ozuna  ...          90 2023-03-21
+120  6HvZYsbFfjnjFrWF950C9d            NewJeans  ...          86 2023-03-21
+122  0tmwSHipWxN12fsoLcFU3B       Manuel Turizo  ...          86 2023-03-21
+127  6Sbl0NT50roqWvy746MfVf  Gabito Ballesteros  ...          81 2023-03-21
+129  12GqGscKJx3aE4t07u7eVZ          Peso Pluma  ...          89 2023-03-21
+132  0elWFr7TW8piilVRYJUe4P       Natanael Cano  ...          88 2023-03-21
+144  7o2ZQYM7nTsaVdkXY38UAA          Em Beihold  ...          79 2023-03-21
+146  5XKFrudbV4IiuE5WuTPRmT     Stephen Sanchez  ...          82 2023-03-21
+148  64M6ah0SkkRsnPGtGiRAbb          Bebe Rexha  ...          85 2023-03-21
+152  1Cs0zKBU1kc0i8ypK3B9ai        David Guetta  ...          91 2023-03-21
+157  07PdYoE4jVRF6Ut40GgVSP     Cartel De Santa  ...          83 2023-03-21
+159  06HL4z0CvFAxyc27GXpf02        Taylor Swift  ...         100 2023-03-21
+161  3Xt3RrJMFv5SZkCfUE8C1J          Kim Petras  ...          83 2023-03-21
+166  2wY79sveU1sp5g7SokKOiI           Sam Smith  ...          90 2023-03-21
+168  0C8ZW7ezQVs4URX5aX7Kqx        Selena Gomez  ...          88 2023-03-21
+171  46pWGuE3dSwY3bMMXGBvVS                Rema  ...          84 2023-03-21
+172  0eHQ9o50hj6ZDNBt6Ys1sD              Yandel  ...          84 2023-03-21
+175  0XeEobZplHxzM9QzFQWLiR      Eslabon Armado  ...          81 2023-03-21
+180  1URnnhqYAYcrqrcwql10ft           21 Savage  ...          94 2023-03-21
+182  0iEtIxbK0KxaSlF7G42ZOp        Metro Boomin  ...          92 2023-03-21
+183  6KImCVD70vtIoJWnq6nGn3        Harry Styles  ...          92 2023-03-21
+184  0EmeFodog0BfCgMzAIvKQp             Shakira  ...          94 2023-03-21
+190  66CXWjxzNUsdJxJ2JdwvnR       Ariana Grande  ...          93 2023-03-21
+192  790FomKkXshlbRYZFtlgla             KAROL G  ...          95 2023-03-21
+195  5YGY8feqx7naU7z4HrwZM6         Miley Cyrus  ...          93 2023-03-21
+
+[55 rows x 5 columns]
+[2023-03-21T03:00:01.058+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-21T03:00:01.071+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=ValidateAndLoadArtistFact.ValidateArtistFact, execution_date=20230318T042711, start_date=20230321T030000, end_date=20230321T030001
+[2023-03-21T03:00:01.118+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-21T03:00:01.151+0000] {taskinstance.py:2585} INFO - 1 downstream tasks scheduled from follow-on schedule check

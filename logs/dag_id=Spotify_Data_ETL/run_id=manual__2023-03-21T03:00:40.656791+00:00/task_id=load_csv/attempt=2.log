@@ -1,0 +1,39 @@
+[2023-03-21T03:01:13.644+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Spotify_Data_ETL.load_csv manual__2023-03-21T03:00:40.656791+00:00 [queued]>
+[2023-03-21T03:01:13.653+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Spotify_Data_ETL.load_csv manual__2023-03-21T03:00:40.656791+00:00 [queued]>
+[2023-03-21T03:01:13.653+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T03:01:13.654+0000] {taskinstance.py:1283} INFO - Starting attempt 2 of 3
+[2023-03-21T03:01:13.654+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T03:01:13.665+0000] {taskinstance.py:1303} INFO - Executing <Task(S3ToSnowflakeOperator): load_csv> on 2023-03-21 03:00:40.656791+00:00
+[2023-03-21T03:01:13.673+0000] {standard_task_runner.py:55} INFO - Started process 19950 to run task
+[2023-03-21T03:01:13.678+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'load_csv', 'manual__2023-03-21T03:00:40.656791+00:00', '--job-id', '1727', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmpu_rabzn4']
+[2023-03-21T03:01:13.679+0000] {standard_task_runner.py:83} INFO - Job 1727: Subtask load_csv
+[2023-03-21T03:01:13.759+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.load_csv manual__2023-03-21T03:00:40.656791+00:00 [running]> on host 1fd7b08731f2
+[2023-03-21T03:01:13.834+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=load_csv
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T03:00:40.656791+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T03:00:40.656791+00:00
+[2023-03-21T03:01:13.839+0000] {s3_to_snowflake.py:146} INFO - Executing COPY command...
+[2023-03-21T03:01:13.858+0000] {taskinstance.py:1775} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/snowflake/transfers/s3_to_snowflake.py", line 147, in execute
+    snowflake_hook.run(copy_query, self.autocommit)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 373, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 295, in get_conn
+    conn_config = self._get_conn_params()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 208, in _get_conn_params
+    conn = self.get_connection(self.snowflake_conn_id)  # type: ignore[attr-defined]
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 72, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 435, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `snowflake_default` isn't defined
+[2023-03-21T03:01:13.862+0000] {taskinstance.py:1326} INFO - Marking task as UP_FOR_RETRY. dag_id=Spotify_Data_ETL, task_id=load_csv, execution_date=20230321T030040, start_date=20230321T030113, end_date=20230321T030113
+[2023-03-21T03:01:13.872+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 1727 for task load_csv (The conn_id `snowflake_default` isn't defined; 19950)
+[2023-03-21T03:01:13.889+0000] {local_task_job.py:212} INFO - Task exited with return code 1
+[2023-03-21T03:01:13.906+0000] {taskinstance.py:2585} INFO - 0 downstream tasks scheduled from follow-on schedule check
