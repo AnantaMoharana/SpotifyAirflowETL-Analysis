@@ -1,0 +1,36 @@
+[2023-03-21T20:45:54.100+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Spotify_Data_ETL.TransformData manual__2023-03-21T19:43:28.798625+00:00 [queued]>
+[2023-03-21T20:45:54.105+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Spotify_Data_ETL.TransformData manual__2023-03-21T19:43:28.798625+00:00 [queued]>
+[2023-03-21T20:45:54.105+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T20:45:54.106+0000] {taskinstance.py:1283} INFO - Starting attempt 3 of 5
+[2023-03-21T20:45:54.106+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T20:45:54.113+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): TransformData> on 2023-03-21 19:43:28.798625+00:00
+[2023-03-21T20:45:54.117+0000] {standard_task_runner.py:55} INFO - Started process 12289 to run task
+[2023-03-21T20:45:54.121+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'TransformData', 'manual__2023-03-21T19:43:28.798625+00:00', '--job-id', '2050', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmpbip4mnzb']
+[2023-03-21T20:45:54.121+0000] {standard_task_runner.py:83} INFO - Job 2050: Subtask TransformData
+[2023-03-21T20:45:54.164+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.TransformData manual__2023-03-21T19:43:28.798625+00:00 [running]> on host 1fd7b08731f2
+[2023-03-21T20:45:54.204+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=TransformData
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T19:43:28.798625+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T19:43:28.798625+00:00
+[2023-03-21T20:45:54.236+0000] {warnings.py:110} WARNING - /opt/***/dags/src/transform.py:29: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  song_fact['date']=today
+
+[2023-03-21T20:45:54.238+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/util/_decorators.py:311: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  return func(*args, **kwargs)
+
+[2023-03-21T20:45:54.287+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-21T20:45:54.294+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=TransformData, execution_date=20230321T194328, start_date=20230321T204554, end_date=20230321T204554
+[2023-03-21T20:45:54.333+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-21T20:45:54.354+0000] {taskinstance.py:2585} INFO - 6 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,80 @@
+[2023-03-21T21:39:03.156+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistFact.ValidateArtistFact manual__2023-03-21T21:37:18.113830+00:00 [queued]>
+[2023-03-21T21:39:03.172+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistFact.ValidateArtistFact manual__2023-03-21T21:37:18.113830+00:00 [queued]>
+[2023-03-21T21:39:03.173+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T21:39:03.174+0000] {taskinstance.py:1283} INFO - Starting attempt 2 of 4
+[2023-03-21T21:39:03.174+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T21:39:03.192+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): ValidateAndLoadArtistFact.ValidateArtistFact> on 2023-03-21 21:37:18.113830+00:00
+[2023-03-21T21:39:03.207+0000] {standard_task_runner.py:55} INFO - Started process 16811 to run task
+[2023-03-21T21:39:03.212+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateAndLoadArtistFact.ValidateArtistFact', 'manual__2023-03-21T21:37:18.113830+00:00', '--job-id', '2218', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmp9zaf4kfw']
+[2023-03-21T21:39:03.214+0000] {standard_task_runner.py:83} INFO - Job 2218: Subtask ValidateAndLoadArtistFact.ValidateArtistFact
+[2023-03-21T21:39:03.298+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistFact.ValidateArtistFact manual__2023-03-21T21:37:18.113830+00:00 [running]> on host 1fd7b08731f2
+[2023-03-21T21:39:03.433+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=ValidateAndLoadArtistFact.ValidateArtistFact
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T21:37:18.113830+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T21:37:18.113830+00:00
+[2023-03-21T21:39:03.435+0000] {logging_mixin.py:137} INFO - {"artist_id":{"0":"5lwmRuXgjX8xIwlnauTZIP","1":"790FomKkXshlbRYZFtlgla","10":"5y8tKLUfMvliMe8IKamR32","12":"7dGJo4pcD2V6oG8kP0tJRR","15":"4O15NlyKLIASxsJ0PrXPfz","19":"4q3ewBCX7sLwd24euuV69X","28":"3AA28KZvwAUcZuOKwyblJQ","29":"7bXgB6jMjp9ATFy66eO08Z","31":"7Gi6gjaWy3DxyilpF1a8Is","36":"3l9G1G9MxH6DaRhwLklaf5","38":"53XhwfbYqKCa1cC15pYq2q","40":"2LRoIwlKmHjgvigdNGBHNo","52":"4SsVbpTthjScTS7U2hmr1X","55":"360IAlyVv4PCEVjgyMZrxK","58":"7tYKF4w9nC0nq9CsPZTHyP","62":"5Pwc4xIPtQLFEnJriah9YJ","64":"52iwsT98xCoGgiGntTiR7K","65":"716NhGYqD1jl2wI1Qkgq36","75":"5XJDexmWFLWOkjOEjOVX3e","79":"164Uj4eKjl6zTBKfJLFKKK","80":"6AMd49uBDJfhf30Ak2QR5s","84":"1GmsPCcpKgF9OhlNXjOsbS","87":"2txHhyCwHjUEpJjWrEyqyX","89":"7Ln80lUS6He07XvHI8qqHH","94":"4tZwfgrHOc3mvqYlEYSvVi","96":"1Xyo4u8uXC1ZmMpatF05PJ","108":"6Sbl0NT50roqWvy746MfVf","110":"12GqGscKJx3aE4t07u7eVZ","113":"0elWFr7TW8piilVRYJUe4P","125":"6HvZYsbFfjnjFrWF950C9d","127":"1i8SpTcr7yvPOmcqrbnVXY","131":"0tmwSHipWxN12fsoLcFU3B","136":"12Zk1DFhCbHY6v3xep2ZjI","137":"5KKpBU5eC2tJDzf0wmlRp2","140":"4oUHIQIBe0LHzYfvXNW4QM","141":"07PdYoE4jVRF6Ut40GgVSP","143":"7o2ZQYM7nTsaVdkXY38UAA","145":"5XKFrudbV4IiuE5WuTPRmT","147":"64M6ah0SkkRsnPGtGiRAbb","151":"1Cs0zKBU1kc0i8ypK3B9ai","156":"06HL4z0CvFAxyc27GXpf02","158":"3Xt3RrJMFv5SZkCfUE8C1J","163":"2wY79sveU1sp5g7SokKOiI","165":"0C8ZW7ezQVs4URX5aX7Kqx","168":"46pWGuE3dSwY3bMMXGBvVS","169":"0eHQ9o50hj6ZDNBt6Ys1sD","172":"0XeEobZplHxzM9QzFQWLiR","177":"0EmeFodog0BfCgMzAIvKQp","183":"1URnnhqYAYcrqrcwql10ft","185":"0iEtIxbK0KxaSlF7G42ZOp","186":"6KImCVD70vtIoJWnq6nGn3","187":"66CXWjxzNUsdJxJ2JdwvnR","189":"5YGY8feqx7naU7z4HrwZM6"},"followers":{"0":18060027,"1":33360255,"10":843191,"12":67677829,"15":14765292,"19":66318859,"28":10197303,"29":18888433,"31":6342698,"36":270983,"38":46435894,"40":4185184,"52":10212850,"55":4537087,"58":11408939,"62":15245081,"64":1435593,"65":9760401,"75":3124147,"79":1891353,"80":510175,"84":498871,"87":2968190,"89":19000677,"94":9268503,"96":61057516,"108":81406,"110":1188577,"113":5983853,"125":2708884,"127":36019456,"131":11737717,"136":441148,"137":795502,"140":5274947,"141":13666279,"143":309021,"145":525092,"147":8058218,"151":25701221,"156":70091476,"158":872935,"163":22101876,"165":40936357,"168":2018580,"169":6722841,"172":3612097,"177":27841105,"183":13106661,"185":3899337,"186":26624075,"187":88784729,"189":20087870},"popularity":{"0":86,"1":95,"10":84,"12":94,"15":89,"19":99,"28":86,"29":91,"31":90,"36":79,"38":90,"40":94,"52":87,"55":84,"58":95,"62":86,"64":90,"65":89,"75":87,"79":82,"80":79,"84":79,"87":80,"89":89,"94":84,"96":99,"108":81,"110":89,"113":88,"125":86,"127":90,"131":86,"136":82,"137":83,"140":94,"141":83,"143":79,"145":82,"147":85,"151":91,"156":100,"158":82,"163":89,"165":88,"168":83,"169":84,"172":81,"177":94,"183":94,"185":92,"186":91,"187":92,"189":93},"date":{"0":"2023-03-21","1":"2023-03-21","10":"2023-03-21","12":"2023-03-21","15":"2023-03-21","19":"2023-03-21","28":"2023-03-21","29":"2023-03-21","31":"2023-03-21","36":"2023-03-21","38":"2023-03-21","40":"2023-03-21","52":"2023-03-21","55":"2023-03-21","58":"2023-03-21","62":"2023-03-21","64":"2023-03-21","65":"2023-03-21","75":"2023-03-21","79":"2023-03-21","80":"2023-03-21","84":"2023-03-21","87":"2023-03-21","89":"2023-03-21","94":"2023-03-21","96":"2023-03-21","108":"2023-03-21","110":"2023-03-21","113":"2023-03-21","125":"2023-03-21","127":"2023-03-21","131":"2023-03-21","136":"2023-03-21","137":"2023-03-21","140":"2023-03-21","141":"2023-03-21","143":"2023-03-21","145":"2023-03-21","147":"2023-03-21","151":"2023-03-21","156":"2023-03-21","158":"2023-03-21","163":"2023-03-21","165":"2023-03-21","168":"2023-03-21","169":"2023-03-21","172":"2023-03-21","177":"2023-03-21","183":"2023-03-21","185":"2023-03-21","186":"2023-03-21","187":"2023-03-21","189":"2023-03-21"}}
+[2023-03-21T21:39:03.436+0000] {logging_mixin.py:137} INFO - ['artist_id', 'followers', 'popularity', 'date']
+[2023-03-21T21:39:03.436+0000] {logging_mixin.py:137} INFO - artist_fact
+[2023-03-21T21:39:03.459+0000] {logging_mixin.py:137} INFO -                   artist_id  followers  popularity       date
+0    5lwmRuXgjX8xIwlnauTZIP   18060027          86 2023-03-21
+1    790FomKkXshlbRYZFtlgla   33360255          95 2023-03-21
+10   5y8tKLUfMvliMe8IKamR32     843191          84 2023-03-21
+12   7dGJo4pcD2V6oG8kP0tJRR   67677829          94 2023-03-21
+15   4O15NlyKLIASxsJ0PrXPfz   14765292          89 2023-03-21
+19   4q3ewBCX7sLwd24euuV69X   66318859          99 2023-03-21
+28   3AA28KZvwAUcZuOKwyblJQ   10197303          86 2023-03-21
+29   7bXgB6jMjp9ATFy66eO08Z   18888433          91 2023-03-21
+31   7Gi6gjaWy3DxyilpF1a8Is    6342698          90 2023-03-21
+36   3l9G1G9MxH6DaRhwLklaf5     270983          79 2023-03-21
+38   53XhwfbYqKCa1cC15pYq2q   46435894          90 2023-03-21
+40   2LRoIwlKmHjgvigdNGBHNo    4185184          94 2023-03-21
+52   4SsVbpTthjScTS7U2hmr1X   10212850          87 2023-03-21
+55   360IAlyVv4PCEVjgyMZrxK    4537087          84 2023-03-21
+58   7tYKF4w9nC0nq9CsPZTHyP   11408939          95 2023-03-21
+62   5Pwc4xIPtQLFEnJriah9YJ   15245081          86 2023-03-21
+64   52iwsT98xCoGgiGntTiR7K    1435593          90 2023-03-21
+65   716NhGYqD1jl2wI1Qkgq36    9760401          89 2023-03-21
+75   5XJDexmWFLWOkjOEjOVX3e    3124147          87 2023-03-21
+79   164Uj4eKjl6zTBKfJLFKKK    1891353          82 2023-03-21
+80   6AMd49uBDJfhf30Ak2QR5s     510175          79 2023-03-21
+84   1GmsPCcpKgF9OhlNXjOsbS     498871          79 2023-03-21
+87   2txHhyCwHjUEpJjWrEyqyX    2968190          80 2023-03-21
+89   7Ln80lUS6He07XvHI8qqHH   19000677          89 2023-03-21
+94   4tZwfgrHOc3mvqYlEYSvVi    9268503          84 2023-03-21
+96   1Xyo4u8uXC1ZmMpatF05PJ   61057516          99 2023-03-21
+108  6Sbl0NT50roqWvy746MfVf      81406          81 2023-03-21
+110  12GqGscKJx3aE4t07u7eVZ    1188577          89 2023-03-21
+113  0elWFr7TW8piilVRYJUe4P    5983853          88 2023-03-21
+125  6HvZYsbFfjnjFrWF950C9d    2708884          86 2023-03-21
+127  1i8SpTcr7yvPOmcqrbnVXY   36019456          90 2023-03-21
+131  0tmwSHipWxN12fsoLcFU3B   11737717          86 2023-03-21
+136  12Zk1DFhCbHY6v3xep2ZjI     441148          82 2023-03-21
+137  5KKpBU5eC2tJDzf0wmlRp2     795502          83 2023-03-21
+140  4oUHIQIBe0LHzYfvXNW4QM    5274947          94 2023-03-21
+141  07PdYoE4jVRF6Ut40GgVSP   13666279          83 2023-03-21
+143  7o2ZQYM7nTsaVdkXY38UAA     309021          79 2023-03-21
+145  5XKFrudbV4IiuE5WuTPRmT     525092          82 2023-03-21
+147  64M6ah0SkkRsnPGtGiRAbb    8058218          85 2023-03-21
+151  1Cs0zKBU1kc0i8ypK3B9ai   25701221          91 2023-03-21
+156  06HL4z0CvFAxyc27GXpf02   70091476         100 2023-03-21
+158  3Xt3RrJMFv5SZkCfUE8C1J     872935          82 2023-03-21
+163  2wY79sveU1sp5g7SokKOiI   22101876          89 2023-03-21
+165  0C8ZW7ezQVs4URX5aX7Kqx   40936357          88 2023-03-21
+168  46pWGuE3dSwY3bMMXGBvVS    2018580          83 2023-03-21
+169  0eHQ9o50hj6ZDNBt6Ys1sD    6722841          84 2023-03-21
+172  0XeEobZplHxzM9QzFQWLiR    3612097          81 2023-03-21
+177  0EmeFodog0BfCgMzAIvKQp   27841105          94 2023-03-21
+183  1URnnhqYAYcrqrcwql10ft   13106661          94 2023-03-21
+185  0iEtIxbK0KxaSlF7G42ZOp    3899337          92 2023-03-21
+186  6KImCVD70vtIoJWnq6nGn3   26624075          91 2023-03-21
+187  66CXWjxzNUsdJxJ2JdwvnR   88784729          92 2023-03-21
+189  5YGY8feqx7naU7z4HrwZM6   20087870          93 2023-03-21
+[2023-03-21T21:39:03.465+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-21T21:39:03.480+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=ValidateAndLoadArtistFact.ValidateArtistFact, execution_date=20230321T213718, start_date=20230321T213903, end_date=20230321T213903
+[2023-03-21T21:39:03.549+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-21T21:39:03.594+0000] {taskinstance.py:2585} INFO - 1 downstream tasks scheduled from follow-on schedule check

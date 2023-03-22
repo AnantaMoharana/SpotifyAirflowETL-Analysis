@@ -1,0 +1,77 @@
+[2023-03-21T21:09:39.397+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongFact.ValidateSongFact manual__2023-03-21T19:43:28.798625+00:00 [queued]>
+[2023-03-21T21:09:39.406+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongFact.ValidateSongFact manual__2023-03-21T19:43:28.798625+00:00 [queued]>
+[2023-03-21T21:09:39.406+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T21:09:39.407+0000] {taskinstance.py:1283} INFO - Starting attempt 6 of 8
+[2023-03-21T21:09:39.407+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T21:09:39.423+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): ValidateAndLoadSongFact.ValidateSongFact> on 2023-03-21 19:43:28.798625+00:00
+[2023-03-21T21:09:39.438+0000] {standard_task_runner.py:55} INFO - Started process 14284 to run task
+[2023-03-21T21:09:39.445+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateAndLoadSongFact.ValidateSongFact', 'manual__2023-03-21T19:43:28.798625+00:00', '--job-id', '2121', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmpg3zg3eub']
+[2023-03-21T21:09:39.445+0000] {standard_task_runner.py:83} INFO - Job 2121: Subtask ValidateAndLoadSongFact.ValidateSongFact
+[2023-03-21T21:09:39.537+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.ValidateAndLoadSongFact.ValidateSongFact manual__2023-03-21T19:43:28.798625+00:00 [running]> on host 1fd7b08731f2
+[2023-03-21T21:09:39.645+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=ValidateAndLoadSongFact.ValidateSongFact
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T19:43:28.798625+00:00
+AIRFLOW_CTX_TRY_NUMBER=6
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T19:43:28.798625+00:00
+[2023-03-21T21:09:39.647+0000] {logging_mixin.py:137} INFO - {"song_id":{"0":"4NoOME4Dhf4xgxbHDT7VGe","2":"1xK59OXxi2TAAAbmZK0kBL","3":"561jH07mF1jHuk7KlaeF0s","4":"4FyesJzVpA39hbYvcseO2d","5":"38UYeBLfvpnDSG9GznZdnL","7":"5IgjP7X4th6nMNDh4akUHb","8":"6otePxalBK8AVa20xhZYVQ","9":"6TBzRwnX2oYd8aOrOuyK1p","11":"7MVIfkyzuUmQ716j8U7yGR","13":"54ipXppHLA8U4yqpOFTUhr","14":"2CeKVsFFXG4QzA415QygGb","15":"2mnXxnrX5vCGolNkaFvVeM","17":"0JXXNGljqupsJaZsgSbMZV","18":"4iZ4pt7kvcaH6Yo8UoZ4s2","19":"4fYte8ZvTK14NEhAOZocBi","20":"2tTmW7RDtMQtBk7m2rYeSw","22":"0PB0O24JqAuNdOAFVJljMS","24":"5odlY52u43F5BjByhxg7wg","25":"6UN73IYd0hZxLi8wFPMQij","26":"2L9N0zZnd37dwF0clgxMGI","27":"7jtQIBanIiJOMS6RyCx6jZ","28":"5XeFesFbtLpXzIVDNQP22n","29":"7MXVkk9YMctZqd1Srtv4MB","31":"1lRtH4FszTrwwlK5gTSbXO","34":"2mpoNBkngUEwnaKoBhZ0vl","36":"65FftemJ1DbbZ45DUfHJXE","37":"1zsPaEkglFvxjAhrM8yhpr","39":"3tt9i3Hhzq84dPS8H7iSiJ","40":"5mHdCZtVyb4DcJw8799hZp","42":"7K3BhSpAxZBznislvUMVtn","43":"55ZATsjPlTeSTNJOuW90pW","45":"1Y3LN4zO1Edc2EluIoSPJN","47":"78Sw5GDo6AlGwTwanjXbGh","48":"4uUG5RXrOk84mYEfFvj3cK","50":"4P9Q0GojKVXpRTJCaL3kyy","51":"59hBR0BCtJsfIbV9VzCVAp","52":"2LBqCSwhJGcFQeTHMVGwy3","53":"0NZPBYD5qbEWRs3PrGiRkT","55":"0V3wPSX9ygBnCm8psDIegu","56":"0WtM2NBVQNNJLh6scP13H8","58":"4FAKtPVycI4DxoOHC01YqD","60":"3dnP0JxCgygwQH9Gm7q7nb","62":"4nrPB8O7Y7wsOCJdgXkthe","64":"2dHHgzDwk4BJdRwy9uXhTO","67":"4Dvkj6JhhA12EX05fT7y2e","68":"4W4fNrZYkobj539TOWsLO2","70":"6AQbmUe0Qwf5PZnt4HmTXv","72":"1Qrg8KqiBpW07V7PNxwwwL","73":"0DWdj2oZMBFSzRsi2Cvfzf","75":"4DHcnVTT87F0zZhRPYmZ3B"},"popularity":{"0":84,"2":90,"3":90,"4":90,"5":88,"7":89,"8":87,"9":88,"11":86,"13":85,"14":87,"15":86,"17":91,"18":90,"19":49,"20":92,"22":79,"24":89,"25":91,"26":89,"27":61,"28":91,"29":91,"31":90,"34":90,"36":92,"37":90,"39":61,"40":79,"42":83,"43":87,"45":91,"47":92,"48":93,"50":81,"51":83,"52":89,"53":85,"55":92,"56":93,"58":87,"60":81,"62":96,"64":95,"67":90,"68":70,"70":96,"72":93,"73":95,"75":83},"date":{"0":"2023-03-21","2":"2023-03-21","3":"2023-03-21","4":"2023-03-21","5":"2023-03-21","7":"2023-03-21","8":"2023-03-21","9":"2023-03-21","11":"2023-03-21","13":"2023-03-21","14":"2023-03-21","15":"2023-03-21","17":"2023-03-21","18":"2023-03-21","19":"2023-03-21","20":"2023-03-21","22":"2023-03-21","24":"2023-03-21","25":"2023-03-21","26":"2023-03-21","27":"2023-03-21","28":"2023-03-21","29":"2023-03-21","31":"2023-03-21","34":"2023-03-21","36":"2023-03-21","37":"2023-03-21","39":"2023-03-21","40":"2023-03-21","42":"2023-03-21","43":"2023-03-21","45":"2023-03-21","47":"2023-03-21","48":"2023-03-21","50":"2023-03-21","51":"2023-03-21","52":"2023-03-21","53":"2023-03-21","55":"2023-03-21","56":"2023-03-21","58":"2023-03-21","60":"2023-03-21","62":"2023-03-21","64":"2023-03-21","67":"2023-03-21","68":"2023-03-21","70":"2023-03-21","72":"2023-03-21","73":"2023-03-21","75":"2023-03-21"}}
+[2023-03-21T21:09:39.648+0000] {logging_mixin.py:137} INFO - ['song_id', 'popularity', 'date']
+[2023-03-21T21:09:39.648+0000] {logging_mixin.py:137} INFO - song_fact
+[2023-03-21T21:09:39.662+0000] {logging_mixin.py:137} INFO -                    song_id  popularity       date
+0   4NoOME4Dhf4xgxbHDT7VGe          84 2023-03-21
+2   1xK59OXxi2TAAAbmZK0kBL          90 2023-03-21
+3   561jH07mF1jHuk7KlaeF0s          90 2023-03-21
+4   4FyesJzVpA39hbYvcseO2d          90 2023-03-21
+5   38UYeBLfvpnDSG9GznZdnL          88 2023-03-21
+7   5IgjP7X4th6nMNDh4akUHb          89 2023-03-21
+8   6otePxalBK8AVa20xhZYVQ          87 2023-03-21
+9   6TBzRwnX2oYd8aOrOuyK1p          88 2023-03-21
+11  7MVIfkyzuUmQ716j8U7yGR          86 2023-03-21
+13  54ipXppHLA8U4yqpOFTUhr          85 2023-03-21
+14  2CeKVsFFXG4QzA415QygGb          87 2023-03-21
+15  2mnXxnrX5vCGolNkaFvVeM          86 2023-03-21
+17  0JXXNGljqupsJaZsgSbMZV          91 2023-03-21
+18  4iZ4pt7kvcaH6Yo8UoZ4s2          90 2023-03-21
+19  4fYte8ZvTK14NEhAOZocBi          49 2023-03-21
+20  2tTmW7RDtMQtBk7m2rYeSw          92 2023-03-21
+22  0PB0O24JqAuNdOAFVJljMS          79 2023-03-21
+24  5odlY52u43F5BjByhxg7wg          89 2023-03-21
+25  6UN73IYd0hZxLi8wFPMQij          91 2023-03-21
+26  2L9N0zZnd37dwF0clgxMGI          89 2023-03-21
+27  7jtQIBanIiJOMS6RyCx6jZ          61 2023-03-21
+28  5XeFesFbtLpXzIVDNQP22n          91 2023-03-21
+29  7MXVkk9YMctZqd1Srtv4MB          91 2023-03-21
+31  1lRtH4FszTrwwlK5gTSbXO          90 2023-03-21
+34  2mpoNBkngUEwnaKoBhZ0vl          90 2023-03-21
+36  65FftemJ1DbbZ45DUfHJXE          92 2023-03-21
+37  1zsPaEkglFvxjAhrM8yhpr          90 2023-03-21
+39  3tt9i3Hhzq84dPS8H7iSiJ          61 2023-03-21
+40  5mHdCZtVyb4DcJw8799hZp          79 2023-03-21
+42  7K3BhSpAxZBznislvUMVtn          83 2023-03-21
+43  55ZATsjPlTeSTNJOuW90pW          87 2023-03-21
+45  1Y3LN4zO1Edc2EluIoSPJN          91 2023-03-21
+47  78Sw5GDo6AlGwTwanjXbGh          92 2023-03-21
+48  4uUG5RXrOk84mYEfFvj3cK          93 2023-03-21
+50  4P9Q0GojKVXpRTJCaL3kyy          81 2023-03-21
+51  59hBR0BCtJsfIbV9VzCVAp          83 2023-03-21
+52  2LBqCSwhJGcFQeTHMVGwy3          89 2023-03-21
+53  0NZPBYD5qbEWRs3PrGiRkT          85 2023-03-21
+55  0V3wPSX9ygBnCm8psDIegu          92 2023-03-21
+56  0WtM2NBVQNNJLh6scP13H8          93 2023-03-21
+58  4FAKtPVycI4DxoOHC01YqD          87 2023-03-21
+60  3dnP0JxCgygwQH9Gm7q7nb          81 2023-03-21
+62  4nrPB8O7Y7wsOCJdgXkthe          96 2023-03-21
+64  2dHHgzDwk4BJdRwy9uXhTO          95 2023-03-21
+67  4Dvkj6JhhA12EX05fT7y2e          90 2023-03-21
+68  4W4fNrZYkobj539TOWsLO2          70 2023-03-21
+70  6AQbmUe0Qwf5PZnt4HmTXv          96 2023-03-21
+72  1Qrg8KqiBpW07V7PNxwwwL          93 2023-03-21
+73  0DWdj2oZMBFSzRsi2Cvfzf          95 2023-03-21
+75  4DHcnVTT87F0zZhRPYmZ3B          83 2023-03-21
+[2023-03-21T21:09:39.664+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-21T21:09:39.677+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=ValidateAndLoadSongFact.ValidateSongFact, execution_date=20230321T194328, start_date=20230321T210939, end_date=20230321T210939
+[2023-03-21T21:09:39.774+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-21T21:09:39.807+0000] {taskinstance.py:2585} INFO - 1 downstream tasks scheduled from follow-on schedule check

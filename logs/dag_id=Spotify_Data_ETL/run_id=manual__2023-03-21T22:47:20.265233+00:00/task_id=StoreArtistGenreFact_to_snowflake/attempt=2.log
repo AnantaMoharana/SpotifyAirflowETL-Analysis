@@ -1,0 +1,43 @@
+[2023-03-21T22:47:59.061+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Spotify_Data_ETL.StoreArtistGenreFact_to_snowflake manual__2023-03-21T22:47:20.265233+00:00 [queued]>
+[2023-03-21T22:47:59.073+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Spotify_Data_ETL.StoreArtistGenreFact_to_snowflake manual__2023-03-21T22:47:20.265233+00:00 [queued]>
+[2023-03-21T22:47:59.074+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T22:47:59.074+0000] {taskinstance.py:1283} INFO - Starting attempt 2 of 3
+[2023-03-21T22:47:59.074+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T22:47:59.100+0000] {taskinstance.py:1303} INFO - Executing <Task(S3ToSnowflakeOperator): StoreArtistGenreFact_to_snowflake> on 2023-03-21 22:47:20.265233+00:00
+[2023-03-21T22:47:59.109+0000] {standard_task_runner.py:55} INFO - Started process 21814 to run task
+[2023-03-21T22:47:59.140+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'StoreArtistGenreFact_to_snowflake', 'manual__2023-03-21T22:47:20.265233+00:00', '--job-id', '2261', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmpkju_trrz']
+[2023-03-21T22:47:59.142+0000] {standard_task_runner.py:83} INFO - Job 2261: Subtask StoreArtistGenreFact_to_snowflake
+[2023-03-21T22:47:59.340+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.StoreArtistGenreFact_to_snowflake manual__2023-03-21T22:47:20.265233+00:00 [running]> on host 1fd7b08731f2
+[2023-03-21T22:47:59.458+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=StoreArtistGenreFact_to_snowflake
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T22:47:20.265233+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T22:47:20.265233+00:00
+[2023-03-21T22:47:59.460+0000] {s3_to_snowflake.py:146} INFO - Executing COPY command...
+[2023-03-21T22:47:59.477+0000] {base.py:73} INFO - Using connection ID 'snowflake_connection' for task execution.
+[2023-03-21T22:47:59.483+0000] {connection.py:287} INFO - Snowflake Connector for Python Version: 3.0.1, Python Version: 3.7.16, Platform: Linux-5.15.49-linuxkit-aarch64-with-debian-11.6
+[2023-03-21T22:47:59.485+0000] {connection.py:990} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2023-03-21T22:47:59.485+0000] {connection.py:1007} INFO - Setting use_openssl_only mode to False
+[2023-03-21T22:48:00.097+0000] {cursor.py:738} INFO - query: [ALTER SESSION SET autocommit=True]
+[2023-03-21T22:48:00.170+0000] {cursor.py:751} INFO - query execution done
+[2023-03-21T22:48:00.171+0000] {cursor.py:891} INFO - Number of results in first chunk: 1
+[2023-03-21T22:48:00.171+0000] {sql.py:375} INFO - Running statement: COPY INTO SpotifyTop50USA.artist_genre_fact
+FROM @s3_snowflake_stage/
+files=('2023-03-21/artist_genre_fact.csv')
+file_format=DATA_CSV, parameters: None
+[2023-03-21T22:48:00.172+0000] {cursor.py:738} INFO - query: [COPY INTO SpotifyTop50USA.artist_genre_fact FROM @s3_snowflake_stage/ files=('20...]
+[2023-03-21T22:48:01.135+0000] {cursor.py:751} INFO - query execution done
+[2023-03-21T22:48:01.137+0000] {cursor.py:891} INFO - Number of results in first chunk: 1
+[2023-03-21T22:48:01.138+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-03-21T22:48:01.138+0000] {snowflake.py:391} INFO - Rows affected: 1
+[2023-03-21T22:48:01.141+0000] {snowflake.py:392} INFO - Snowflake query id: 01ab1a78-0004-6110-0000-00552087a19d
+[2023-03-21T22:48:01.142+0000] {connection.py:586} INFO - closed
+[2023-03-21T22:48:01.168+0000] {connection.py:589} INFO - No async queries seem to be running, deleting session
+[2023-03-21T22:48:01.241+0000] {s3_to_snowflake.py:148} INFO - COPY command completed
+[2023-03-21T22:48:01.268+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=StoreArtistGenreFact_to_snowflake, execution_date=20230321T224720, start_date=20230321T224759, end_date=20230321T224801
+[2023-03-21T22:48:01.340+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-21T22:48:01.379+0000] {taskinstance.py:2585} INFO - 0 downstream tasks scheduled from follow-on schedule check

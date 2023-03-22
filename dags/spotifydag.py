@@ -1,8 +1,10 @@
 #import libraries
-from datetime import datetime, timedelta
+import datetime
+from datetime import datetime, timedelta, date
 import pandas as pd
 from airflow import DAG
 from airflow.utils.task_group import TaskGroup
+from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
 from airflow.providers.snowflake.transfers.s3_to_snowflake import S3ToSnowflakeOperator
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
@@ -12,6 +14,13 @@ from src.load import load_tables, json_to_csv
 
 #Get todays date
 today_str = datetime.today().strftime('%Y-%m-%d')
+month=datetime.today().month
+month_name=datetime.today().strftime("%B")
+day_of_month=datetime.today().day
+day_of_week=datetime.today().weekday()
+day_name=datetime.today().strftime("%A")
+quarter=(month -1) // 3 +1
+
 #Create default argument for dag
 default_args = {
     'owner': 'Ananta Moharana',
@@ -131,7 +140,7 @@ with DAG(
     #Validate and put Song Artist Bridge in S3
     with TaskGroup('ValidateAndLoadSongArtistBridge') as PrepareSongArtistBridge:
         #Validate the song dimenesion
-        validate_song_arist_bridge=PythonOperator(
+        validate_song_artist_bridge=PythonOperator(
             task_id='ValidateSongArtistBridge',
             python_callable=validate_data,
             op_kwargs={
@@ -142,17 +151,17 @@ with DAG(
             dag=dag
         )
         #Put the song artist brudge in S3
-        stage_song_arist_bridge=PythonOperator(
+        stage_song_artist_bridge=PythonOperator(
             task_id='SongArtistBridgeToS3',
             python_callable=load_tables,
             op_kwargs={
-                'key':today_str+'/song_arist_bridge.json',
+                'key':today_str+'/song_artist_bridge.json',
                 'bucketname':'spotify-top-50',
                 "data": "{{ task_instance.xcom_pull(task_ids='TransformData', key='song_artist_bridge') }}"
             },
             dag=dag
         )
-        validate_song_arist_bridge >> stage_song_arist_bridge
+        validate_song_artist_bridge >> stage_song_artist_bridge
 
     #Validate and put Artist Fact in S3
     with TaskGroup('ValidateAndLoadArtistFact') as PrepareArtistFact:
@@ -245,6 +254,110 @@ with DAG(
         dag=dag
     )
 
+    #Move the data into the datawarehosue
+    with TaskGroup('StoreDataInWarehouse') as StageDataInWarehouse:
+        #Load the SongDim Table into Snowflake
+        SongDim_to_snowflake = S3ToSnowflakeOperator(
+            task_id='StoreSongDim',
+            s3_keys=['{}/song_dim.csv'.format(today_str)],
+            table='song_dim',
+            file_format="DATA_CSV",
+            schema = "SpotifyTop50USA",
+            warehouse = "SPOTIFYTOP50",
+            database = "top50usa",
+            snowflake_conn_id = 'snowflake_connection' ,
+            stage='s3_snowflake_stage',
+            role = "ACCOUNTADMIN"
+
+        )
+
+        #Load the ArtistDim Table into Snowflake
+        ArtistDim_to_snowflake = S3ToSnowflakeOperator(
+            task_id='StoreArtistDim',
+            s3_keys=['{}/artist_dim.csv'.format(today_str)],
+            table='artist_dim',
+            file_format="DATA_CSV",
+            schema = "SpotifyTop50USA",
+            warehouse = "SPOTIFYTOP50",
+            database = "top50usa",
+            snowflake_conn_id = 'snowflake_connection' ,
+            stage='s3_snowflake_stage',
+            role = "ACCOUNTADMIN"
+
+        )
+        #Load the calendar dim into Snowflake
+        insert_date=SnowflakeOperator(
+        task_id='insert_date',
+        sql="""
+        INSERT INTO calendar_dim (date, month, month_name,day_of_month,day_of_week,day_name,quarter)
+        VALUES ('{date}', {month}, '{month_name}',{day_of_month},{day_of_week},'{day_name}',{quarter})
+        """.format(date=today_str,month=month,month_name=month_name,day_of_month=day_of_month,day_of_week=day_of_week,day_name=day_name,quarter=quarter),
+        snowflake_conn_id='snowflake_connection',
+        database='top50usa',
+        schema='SpotifyTop50USA',
+        warehouse='SPOTIFYTOP50',
+        role="ACCOUNTADMIN"
+        )
+
+        #Load the ArtistDim Table into Snowflake
+        SongArtistBridge_to_snowflake = S3ToSnowflakeOperator(
+            task_id='StoreSongArtistBridge',
+            s3_keys=['{}/song_artist_bridge.csv'.format(today_str)],
+            table='song_artist',
+            file_format="DATA_CSV",
+            schema = "SpotifyTop50USA",
+            warehouse = "SPOTIFYTOP50",
+            database = "top50usa",
+            snowflake_conn_id = 'snowflake_connection' ,
+            stage='s3_snowflake_stage',
+            role = "ACCOUNTADMIN"
+
+        )
+        #Load the SongFact Table into Snowflake
+        SongFact_to_snowflake = S3ToSnowflakeOperator(
+            task_id='StoreSongFact',
+            s3_keys=['{}/song_fact.csv'.format(today_str)],
+            table='song_fact',
+            file_format="DATA_CSV",
+            schema = "SpotifyTop50USA",
+            warehouse = "SPOTIFYTOP50",
+            database = "top50usa",
+            snowflake_conn_id = 'snowflake_connection' ,
+            stage='s3_snowflake_stage',
+            role = "ACCOUNTADMIN"
+
+        )
+
+        #Load the ArtistDim Table into Snowflake
+        ArtistGenreFact_to_snowflake = S3ToSnowflakeOperator(
+            task_id='StoreArtistGenre_to_snowflake',
+            s3_keys=['{}/artist_genre_fact.csv'.format(today_str)],
+            table='artist_dim',
+            file_format="DATA_CSV",
+            schema = "SpotifyTop50USA",
+            warehouse = "SPOTIFYTOP50",
+            database = "top50usa",
+            snowflake_conn_id = 'snowflake_connection' ,
+            stage='s3_snowflake_stage',
+            role = "ACCOUNTADMIN"
+
+        )
+
+        #Load the ArtistPopularityFact Table into Snowflake
+        ArtistPopularityFact_to_snowflake = S3ToSnowflakeOperator(
+            task_id='StoreArtistPopularityFact_to_snowflake',
+            s3_keys=['{}/artist_fact.csv'.format(today_str)],
+            table='artist_popularity_fact',
+            file_format="DATA_CSV",
+            schema = "SpotifyTop50USA",
+            warehouse = "SPOTIFYTOP50",
+            database = "top50usa",
+            snowflake_conn_id = 'snowflake_connection' ,
+            stage='s3_snowflake_stage',
+            role = "ACCOUNTADMIN"
+
+        )
+        SongDim_to_snowflake >> ArtistDim_to_snowflake >> insert_date >> SongArtistBridge_to_snowflake >> SongFact_to_snowflake >> ArtistGenreFact_to_snowflake >> ArtistPopularityFact_to_snowflake
 
     #Create end etl task
     finished = EmptyOperator(
@@ -258,8 +371,9 @@ authenticate >> \
 get_songs >> \
 [artist_info, audio_quality] >> \
 data_transformations >> \
-[PrepareLoadSongFact,PrepareLoadSongDim,PrepareArtistFact, PrepareArtistGenreFact, PrepareSongArtistBridge,PrepareArtistDim ] >> \
+[PrepareLoadSongFact,PrepareLoadSongDim,PrepareArtistFact, PrepareArtistGenreFact, PrepareSongArtistBridge,PrepareArtistDim ] >>\
 json_csv >> \
+StageDataInWarehouse >>\
 finished
 
 

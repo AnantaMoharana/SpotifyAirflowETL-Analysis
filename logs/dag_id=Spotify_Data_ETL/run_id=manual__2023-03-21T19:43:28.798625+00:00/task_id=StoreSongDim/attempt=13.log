@@ -1,0 +1,62 @@
+[2023-03-21T21:08:29.735+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Spotify_Data_ETL.StoreSongDim manual__2023-03-21T19:43:28.798625+00:00 [queued]>
+[2023-03-21T21:08:29.740+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Spotify_Data_ETL.StoreSongDim manual__2023-03-21T19:43:28.798625+00:00 [queued]>
+[2023-03-21T21:08:29.741+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T21:08:29.741+0000] {taskinstance.py:1283} INFO - Starting attempt 13 of 15
+[2023-03-21T21:08:29.742+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T21:08:29.749+0000] {taskinstance.py:1303} INFO - Executing <Task(S3ToSnowflakeOperator): StoreSongDim> on 2023-03-21 19:43:28.798625+00:00
+[2023-03-21T21:08:29.754+0000] {standard_task_runner.py:55} INFO - Started process 14150 to run task
+[2023-03-21T21:08:29.758+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'StoreSongDim', 'manual__2023-03-21T19:43:28.798625+00:00', '--job-id', '2110', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmp7l11m30v']
+[2023-03-21T21:08:29.759+0000] {standard_task_runner.py:83} INFO - Job 2110: Subtask StoreSongDim
+[2023-03-21T21:08:29.806+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.StoreSongDim manual__2023-03-21T19:43:28.798625+00:00 [running]> on host 1fd7b08731f2
+[2023-03-21T21:08:29.849+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=StoreSongDim
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T19:43:28.798625+00:00
+AIRFLOW_CTX_TRY_NUMBER=13
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T19:43:28.798625+00:00
+[2023-03-21T21:08:29.850+0000] {s3_to_snowflake.py:146} INFO - Executing COPY command...
+[2023-03-21T21:08:29.857+0000] {base.py:73} INFO - Using connection ID 'snowflake_connection' for task execution.
+[2023-03-21T21:08:29.859+0000] {connection.py:287} INFO - Snowflake Connector for Python Version: 3.0.1, Python Version: 3.7.16, Platform: Linux-5.15.49-linuxkit-aarch64-with-debian-11.6
+[2023-03-21T21:08:29.860+0000] {connection.py:990} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2023-03-21T21:08:29.861+0000] {connection.py:1007} INFO - Setting use_openssl_only mode to False
+[2023-03-21T21:08:30.425+0000] {cursor.py:738} INFO - query: [ALTER SESSION SET autocommit=True]
+[2023-03-21T21:08:30.536+0000] {cursor.py:751} INFO - query execution done
+[2023-03-21T21:08:30.537+0000] {cursor.py:891} INFO - Number of results in first chunk: 1
+[2023-03-21T21:08:30.537+0000] {sql.py:375} INFO - Running statement: COPY INTO SpotifyTop50USA.song_dim
+FROM @s3_snowflake_stage/
+files=('2023-03-21/song_dim.csv')
+file_format=DATA_CSV, parameters: None
+[2023-03-21T21:08:30.538+0000] {cursor.py:738} INFO - query: [COPY INTO SpotifyTop50USA.song_dim FROM @s3_snowflake_stage/ files=('2023-03-21/...]
+[2023-03-21T21:08:31.027+0000] {cursor.py:751} INFO - query execution done
+[2023-03-21T21:08:31.036+0000] {connection.py:586} INFO - closed
+[2023-03-21T21:08:31.071+0000] {connection.py:589} INFO - No async queries seem to be running, deleting session
+[2023-03-21T21:08:31.144+0000] {taskinstance.py:1775} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/snowflake/transfers/s3_to_snowflake.py", line 147, in execute
+    snowflake_hook.run(copy_query, self.autocommit)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 379, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 380, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.7/site-packages/snowflake/connector/cursor.py", line 839, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.7/site-packages/snowflake/connector/errors.py", line 294, in errorhandler_wrapper
+    error_value,
+  File "/home/airflow/.local/lib/python3.7/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.7/site-packages/snowflake/connector/errors.py", line 231, in default_errorhandler
+    cursor=cursor,
+snowflake.connector.errors.ProgrammingError: 100038 (22018): 01ab1a14-0004-618a-0055-2087000130b2: Numeric value 'True' is not recognized
+  File '2023-03-21/song_dim.csv', line 2, character 38
+  Row 1, column "SONG_DIM"["ENERGY":3]
+  If you would like to continue loading when an error is encountered, use other values such as 'SKIP_FILE' or 'CONTINUE' for the ON_ERROR option. For more information on loading options, please run 'info loading_data' in a SQL client.
+[2023-03-21T21:08:31.160+0000] {taskinstance.py:1326} INFO - Marking task as UP_FOR_RETRY. dag_id=Spotify_Data_ETL, task_id=StoreSongDim, execution_date=20230321T194328, start_date=20230321T210829, end_date=20230321T210831
+[2023-03-21T21:08:31.174+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 2110 for task StoreSongDim (100038 (22018): 01ab1a14-0004-618a-0055-2087000130b2: Numeric value 'True' is not recognized
+  File '2023-03-21/song_dim.csv', line 2, character 38
+  Row 1, column "SONG_DIM"["ENERGY":3]
+  If you would like to continue loading when an error is encountered, use other values such as 'SKIP_FILE' or 'CONTINUE' for the ON_ERROR option. For more information on loading options, please run 'info loading_data' in a SQL client.; 14150)
+[2023-03-21T21:08:31.199+0000] {local_task_job.py:212} INFO - Task exited with return code 1
+[2023-03-21T21:08:31.220+0000] {taskinstance.py:2585} INFO - 0 downstream tasks scheduled from follow-on schedule check

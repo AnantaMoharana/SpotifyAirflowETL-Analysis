@@ -1,0 +1,46 @@
+[2023-03-21T23:51:46.561+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Spotify_Data_ETL.StoreDataInWarehouse.insert_date manual__2023-03-21T23:51:16.155488+00:00 [queued]>
+[2023-03-21T23:51:46.566+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Spotify_Data_ETL.StoreDataInWarehouse.insert_date manual__2023-03-21T23:51:16.155488+00:00 [queued]>
+[2023-03-21T23:51:46.566+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T23:51:46.567+0000] {taskinstance.py:1283} INFO - Starting attempt 1 of 3
+[2023-03-21T23:51:46.567+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T23:51:46.574+0000] {taskinstance.py:1303} INFO - Executing <Task(SnowflakeOperator): StoreDataInWarehouse.insert_date> on 2023-03-21 23:51:16.155488+00:00
+[2023-03-21T23:51:46.578+0000] {standard_task_runner.py:55} INFO - Started process 1399 to run task
+[2023-03-21T23:51:46.582+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'StoreDataInWarehouse.insert_date', 'manual__2023-03-21T23:51:16.155488+00:00', '--job-id', '2455', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmplo6fza7j']
+[2023-03-21T23:51:46.582+0000] {standard_task_runner.py:83} INFO - Job 2455: Subtask StoreDataInWarehouse.insert_date
+[2023-03-21T23:51:46.627+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.StoreDataInWarehouse.insert_date manual__2023-03-21T23:51:16.155488+00:00 [running]> on host c6886449e314
+[2023-03-21T23:51:46.667+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=StoreDataInWarehouse.insert_date
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T23:51:16.155488+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T23:51:16.155488+00:00
+[2023-03-21T23:51:46.668+0000] {sql.py:254} INFO - Executing: 
+        INSERT INTO calendar_dim (date, month, month_name,day_of_month,day_of_week,day_name,quarter)
+        VALUES ('2023-03-21', 3, 'March',21,1,'Tuesday',1)
+        
+[2023-03-21T23:51:46.675+0000] {base.py:73} INFO - Using connection ID 'snowflake_connection' for task execution.
+[2023-03-21T23:51:46.770+0000] {base.py:73} INFO - Using connection ID 'snowflake_connection' for task execution.
+[2023-03-21T23:51:46.772+0000] {connection.py:287} INFO - Snowflake Connector for Python Version: 3.0.1, Python Version: 3.7.16, Platform: Linux-5.15.49-linuxkit-aarch64-with-debian-11.6
+[2023-03-21T23:51:46.773+0000] {connection.py:990} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2023-03-21T23:51:46.773+0000] {connection.py:1007} INFO - Setting use_openssl_only mode to False
+[2023-03-21T23:51:47.255+0000] {cursor.py:738} INFO - query: [ALTER SESSION SET autocommit=False]
+[2023-03-21T23:51:47.648+0000] {cursor.py:751} INFO - query execution done
+[2023-03-21T23:51:47.652+0000] {cursor.py:891} INFO - Number of results in first chunk: 1
+[2023-03-21T23:51:47.654+0000] {sql.py:375} INFO - Running statement: INSERT INTO calendar_dim (date, month, month_name,day_of_month,day_of_week,day_name,quarter)
+        VALUES ('2023-03-21', 3, 'March',21,1,'Tuesday',1), parameters: None
+[2023-03-21T23:51:47.655+0000] {cursor.py:738} INFO - query: [INSERT INTO calendar_dim (date, month, month_name,day_of_month,day_of_week,day_n...]
+[2023-03-21T23:51:48.057+0000] {cursor.py:751} INFO - query execution done
+[2023-03-21T23:51:48.058+0000] {sql.py:384} INFO - Rows affected: 1
+[2023-03-21T23:51:48.060+0000] {snowflake.py:391} INFO - Rows affected: 1
+[2023-03-21T23:51:48.060+0000] {snowflake.py:392} INFO - Snowflake query id: 01ab1ab7-0004-6150-0000-00552087e185
+[2023-03-21T23:51:48.062+0000] {cursor.py:738} INFO - query: [COMMIT]
+[2023-03-21T23:51:48.286+0000] {cursor.py:751} INFO - query execution done
+[2023-03-21T23:51:48.289+0000] {cursor.py:891} INFO - Number of results in first chunk: 1
+[2023-03-21T23:51:48.291+0000] {connection.py:586} INFO - closed
+[2023-03-21T23:51:48.323+0000] {connection.py:589} INFO - No async queries seem to be running, deleting session
+[2023-03-21T23:51:48.444+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=StoreDataInWarehouse.insert_date, execution_date=20230321T235116, start_date=20230321T235146, end_date=20230321T235148
+[2023-03-21T23:51:48.478+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-21T23:51:48.501+0000] {taskinstance.py:2585} INFO - 1 downstream tasks scheduled from follow-on schedule check
