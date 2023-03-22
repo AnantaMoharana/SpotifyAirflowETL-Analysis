@@ -32,6 +32,7 @@ def transform_data(ti):
     #Create the song dimension table
     song_dim=pd.merge(songs_df,audio_df,left_on='song_id',right_on='song_id', how='inner')
     song_dim=song_dim.drop(['popularity','artist_name','artist_id'], axis=1)
+    song_dim['instrumentalness'] = song_dim['instrumentalness'].astype(float)
     song_dim.drop_duplicates(inplace=True)
 
     #Create the artist dimension table

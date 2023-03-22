@@ -1,0 +1,86 @@
+[2023-03-21T19:28:18.318+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistDim.ValidateArtistDim manual__2023-03-21T18:58:58.410635+00:00 [queued]>
+[2023-03-21T19:28:18.327+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistDim.ValidateArtistDim manual__2023-03-21T18:58:58.410635+00:00 [queued]>
+[2023-03-21T19:28:18.330+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T19:28:18.330+0000] {taskinstance.py:1283} INFO - Starting attempt 4 of 6
+[2023-03-21T19:28:18.331+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21T19:28:18.348+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): ValidateAndLoadArtistDim.ValidateArtistDim> on 2023-03-21 18:58:58.410635+00:00
+[2023-03-21T19:28:18.357+0000] {standard_task_runner.py:55} INFO - Started process 7369 to run task
+[2023-03-21T19:28:18.372+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Spotify_Data_ETL', 'ValidateAndLoadArtistDim.ValidateArtistDim', 'manual__2023-03-21T18:58:58.410635+00:00', '--job-id', '1929', '--raw', '--subdir', 'DAGS_FOLDER/spotifydag.py', '--cfg-path', '/tmp/tmpbwg888mc']
+[2023-03-21T19:28:18.374+0000] {standard_task_runner.py:83} INFO - Job 1929: Subtask ValidateAndLoadArtistDim.ValidateArtistDim
+[2023-03-21T19:28:18.482+0000] {task_command.py:388} INFO - Running <TaskInstance: Spotify_Data_ETL.ValidateAndLoadArtistDim.ValidateArtistDim manual__2023-03-21T18:58:58.410635+00:00 [running]> on host 1fd7b08731f2
+[2023-03-21T19:28:18.622+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ananta Moharana
+AIRFLOW_CTX_DAG_ID=Spotify_Data_ETL
+AIRFLOW_CTX_TASK_ID=ValidateAndLoadArtistDim.ValidateArtistDim
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T18:58:58.410635+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T18:58:58.410635+00:00
+[2023-03-21T19:28:18.623+0000] {logging_mixin.py:137} INFO - {"artist_name":{"0":"Romeo Santos","1":"KAROL G","2":"d4vd","3":"Eminem","4":"Lil Uzi Vert","5":"Bad Bunny","6":"Gorillaz","7":"Chris Brown","9":"Junior H","10":"Oscar Maydon","11":"Milo j","12":"Taiu","13":"Imagine Dragons","14":"Feid","16":"Arc\u00e1ngel","17":"Miguel","18":"SZA","19":"OneRepublic","20":"Quevedo","21":"Bizarrap","23":"Eladio Carrion","24":"JVKE","25":"Coi Leray","26":"Lizzy McAlpine","27":"Tom Odell","28":"Arctic Monkeys","29":"Daft Punk","30":"The Weeknd","31":"Gabito Ballesteros","32":"Peso Pluma","33":"Natanael Cano","36":"NewJeans","38":"Ozuna","39":"Manuel Turizo","40":"070 Shake","41":"RAYE","42":"Morgan Wallen","43":"La Kelly","44":"Cartel De Santa","45":"Em Beihold","46":"Stephen Sanchez","48":"Bebe Rexha","49":"David Guetta","50":"Taylor Swift","51":"Jimin","53":"Kim Petras","54":"Sam Smith","56":"Selena Gomez","57":"Rema","59":"Yandel","61":"Eslabon Armado","62":"Shakira","64":"21 Savage","66":"Metro Boomin","67":"Harry Styles","68":"Ariana Grande","70":"Ice Spice","71":"PinkPantheress","75":"Miley Cyrus"},"artist_id":{"0":"5lwmRuXgjX8xIwlnauTZIP","1":"790FomKkXshlbRYZFtlgla","2":"5y8tKLUfMvliMe8IKamR32","3":"7dGJo4pcD2V6oG8kP0tJRR","4":"4O15NlyKLIASxsJ0PrXPfz","5":"4q3ewBCX7sLwd24euuV69X","6":"3AA28KZvwAUcZuOKwyblJQ","7":"7bXgB6jMjp9ATFy66eO08Z","9":"7Gi6gjaWy3DxyilpF1a8Is","10":"3l9G1G9MxH6DaRhwLklaf5","11":"19HM5j0ULGSmEoRcrSe5x3","12":"5szJHKg5xeUlQ9pTqzdpic","13":"53XhwfbYqKCa1cC15pYq2q","14":"2LRoIwlKmHjgvigdNGBHNo","16":"4SsVbpTthjScTS7U2hmr1X","17":"360IAlyVv4PCEVjgyMZrxK","18":"7tYKF4w9nC0nq9CsPZTHyP","19":"5Pwc4xIPtQLFEnJriah9YJ","20":"52iwsT98xCoGgiGntTiR7K","21":"716NhGYqD1jl2wI1Qkgq36","23":"5XJDexmWFLWOkjOEjOVX3e","24":"164Uj4eKjl6zTBKfJLFKKK","25":"6AMd49uBDJfhf30Ak2QR5s","26":"1GmsPCcpKgF9OhlNXjOsbS","27":"2txHhyCwHjUEpJjWrEyqyX","28":"7Ln80lUS6He07XvHI8qqHH","29":"4tZwfgrHOc3mvqYlEYSvVi","30":"1Xyo4u8uXC1ZmMpatF05PJ","31":"6Sbl0NT50roqWvy746MfVf","32":"12GqGscKJx3aE4t07u7eVZ","33":"0elWFr7TW8piilVRYJUe4P","36":"6HvZYsbFfjnjFrWF950C9d","38":"1i8SpTcr7yvPOmcqrbnVXY","39":"0tmwSHipWxN12fsoLcFU3B","40":"12Zk1DFhCbHY6v3xep2ZjI","41":"5KKpBU5eC2tJDzf0wmlRp2","42":"4oUHIQIBe0LHzYfvXNW4QM","43":"4yEIQ0lJDgUEfsuYx3Gsmr","44":"07PdYoE4jVRF6Ut40GgVSP","45":"7o2ZQYM7nTsaVdkXY38UAA","46":"5XKFrudbV4IiuE5WuTPRmT","48":"64M6ah0SkkRsnPGtGiRAbb","49":"1Cs0zKBU1kc0i8ypK3B9ai","50":"06HL4z0CvFAxyc27GXpf02","51":"1oSPZhvZMIrWW5I41kPkkY","53":"3Xt3RrJMFv5SZkCfUE8C1J","54":"2wY79sveU1sp5g7SokKOiI","56":"0C8ZW7ezQVs4URX5aX7Kqx","57":"46pWGuE3dSwY3bMMXGBvVS","59":"0eHQ9o50hj6ZDNBt6Ys1sD","61":"0XeEobZplHxzM9QzFQWLiR","62":"0EmeFodog0BfCgMzAIvKQp","64":"1URnnhqYAYcrqrcwql10ft","66":"0iEtIxbK0KxaSlF7G42ZOp","67":"6KImCVD70vtIoJWnq6nGn3","68":"66CXWjxzNUsdJxJ2JdwvnR","70":"3LZZPxNDGDFVSIPqf4JuEf","71":"78rUTD7y6Cy67W1RVzYs7t","75":"5YGY8feqx7naU7z4HrwZM6"}}
+[2023-03-21T19:28:18.624+0000] {logging_mixin.py:137} INFO - ['artist_name', 'artist_id']
+[2023-03-21T19:28:18.625+0000] {logging_mixin.py:137} INFO - artist_dim
+[2023-03-21T19:28:18.654+0000] {logging_mixin.py:137} INFO -            artist_name               artist_id
+0         Romeo Santos  5lwmRuXgjX8xIwlnauTZIP
+1              KAROL G  790FomKkXshlbRYZFtlgla
+2                 d4vd  5y8tKLUfMvliMe8IKamR32
+3               Eminem  7dGJo4pcD2V6oG8kP0tJRR
+4         Lil Uzi Vert  4O15NlyKLIASxsJ0PrXPfz
+5            Bad Bunny  4q3ewBCX7sLwd24euuV69X
+6             Gorillaz  3AA28KZvwAUcZuOKwyblJQ
+7          Chris Brown  7bXgB6jMjp9ATFy66eO08Z
+9             Junior H  7Gi6gjaWy3DxyilpF1a8Is
+10        Oscar Maydon  3l9G1G9MxH6DaRhwLklaf5
+11              Milo j  19HM5j0ULGSmEoRcrSe5x3
+12                Taiu  5szJHKg5xeUlQ9pTqzdpic
+13     Imagine Dragons  53XhwfbYqKCa1cC15pYq2q
+14                Feid  2LRoIwlKmHjgvigdNGBHNo
+16            Arcángel  4SsVbpTthjScTS7U2hmr1X
+17              Miguel  360IAlyVv4PCEVjgyMZrxK
+18                 SZA  7tYKF4w9nC0nq9CsPZTHyP
+19         OneRepublic  5Pwc4xIPtQLFEnJriah9YJ
+20             Quevedo  52iwsT98xCoGgiGntTiR7K
+21            Bizarrap  716NhGYqD1jl2wI1Qkgq36
+23      Eladio Carrion  5XJDexmWFLWOkjOEjOVX3e
+24                JVKE  164Uj4eKjl6zTBKfJLFKKK
+25           Coi Leray  6AMd49uBDJfhf30Ak2QR5s
+26      Lizzy McAlpine  1GmsPCcpKgF9OhlNXjOsbS
+27           Tom Odell  2txHhyCwHjUEpJjWrEyqyX
+28      Arctic Monkeys  7Ln80lUS6He07XvHI8qqHH
+29           Daft Punk  4tZwfgrHOc3mvqYlEYSvVi
+30          The Weeknd  1Xyo4u8uXC1ZmMpatF05PJ
+31  Gabito Ballesteros  6Sbl0NT50roqWvy746MfVf
+32          Peso Pluma  12GqGscKJx3aE4t07u7eVZ
+33       Natanael Cano  0elWFr7TW8piilVRYJUe4P
+36            NewJeans  6HvZYsbFfjnjFrWF950C9d
+38               Ozuna  1i8SpTcr7yvPOmcqrbnVXY
+39       Manuel Turizo  0tmwSHipWxN12fsoLcFU3B
+40           070 Shake  12Zk1DFhCbHY6v3xep2ZjI
+41                RAYE  5KKpBU5eC2tJDzf0wmlRp2
+42       Morgan Wallen  4oUHIQIBe0LHzYfvXNW4QM
+43            La Kelly  4yEIQ0lJDgUEfsuYx3Gsmr
+44     Cartel De Santa  07PdYoE4jVRF6Ut40GgVSP
+45          Em Beihold  7o2ZQYM7nTsaVdkXY38UAA
+46     Stephen Sanchez  5XKFrudbV4IiuE5WuTPRmT
+48          Bebe Rexha  64M6ah0SkkRsnPGtGiRAbb
+49        David Guetta  1Cs0zKBU1kc0i8ypK3B9ai
+50        Taylor Swift  06HL4z0CvFAxyc27GXpf02
+51               Jimin  1oSPZhvZMIrWW5I41kPkkY
+53          Kim Petras  3Xt3RrJMFv5SZkCfUE8C1J
+54           Sam Smith  2wY79sveU1sp5g7SokKOiI
+56        Selena Gomez  0C8ZW7ezQVs4URX5aX7Kqx
+57                Rema  46pWGuE3dSwY3bMMXGBvVS
+59              Yandel  0eHQ9o50hj6ZDNBt6Ys1sD
+61      Eslabon Armado  0XeEobZplHxzM9QzFQWLiR
+62             Shakira  0EmeFodog0BfCgMzAIvKQp
+64           21 Savage  1URnnhqYAYcrqrcwql10ft
+66        Metro Boomin  0iEtIxbK0KxaSlF7G42ZOp
+67        Harry Styles  6KImCVD70vtIoJWnq6nGn3
+68       Ariana Grande  66CXWjxzNUsdJxJ2JdwvnR
+70           Ice Spice  3LZZPxNDGDFVSIPqf4JuEf
+71      PinkPantheress  78rUTD7y6Cy67W1RVzYs7t
+75         Miley Cyrus  5YGY8feqx7naU7z4HrwZM6
+[2023-03-21T19:28:18.664+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-21T19:28:18.683+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=Spotify_Data_ETL, task_id=ValidateAndLoadArtistDim.ValidateArtistDim, execution_date=20230321T185858, start_date=20230321T192818, end_date=20230321T192818
+[2023-03-21T19:28:18.740+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-21T19:28:18.795+0000] {taskinstance.py:2585} INFO - 1 downstream tasks scheduled from follow-on schedule check
